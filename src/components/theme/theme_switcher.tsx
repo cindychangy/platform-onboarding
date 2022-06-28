@@ -5,7 +5,7 @@ import {
   EuiToolTip,
   useEuiTheme,
 } from '@elastic/eui';
-import { useTheme } from '../theme';
+import { useTheme } from './theme';
 import { themeSwitcherStyles } from './theme_switcher.styles';
 
 const ThemeSwitcher: FunctionComponent = () => {

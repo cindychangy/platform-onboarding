@@ -5,7 +5,7 @@ import {
   EuiPageTemplate,
   EuiImage,
 } from '@elastic/eui';
-import { useTheme } from '../components/theme';
+import { useTheme } from '../components/theme/theme';
 import { useRouter } from 'next/router';
 
 const NotFoundPage: FunctionComponent = () => {

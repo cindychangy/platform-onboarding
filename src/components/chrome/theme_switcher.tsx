@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
 import { EuiButtonIcon } from '@elastic/eui';
-import { useTheme } from '../theme';
+import { useTheme } from '../theme/theme';
 
 /**
  * Current theme is set in localStorage

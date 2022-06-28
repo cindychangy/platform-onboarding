@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { EuiErrorBoundary } from '@elastic/eui';
 import { Global } from '@emotion/react';
 import Chrome from '../components/chrome';
-import { Theme } from '../components/theme';
+import { Theme } from '../components/theme/theme';
 import { globalStyes } from '../styles/global.styles';
 
 /**

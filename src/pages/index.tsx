@@ -1,6 +1,5 @@
 import { FunctionComponent } from 'react';
 import Head from 'next/head';
-import { EuiSpacer } from '@elastic/eui';
 
 const Index: FunctionComponent = () => {
   return (
