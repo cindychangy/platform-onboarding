@@ -56,7 +56,7 @@ const IndexPage = () => {
       <div css={LogoPosition}>
         <EuiImage
           size={170}
-          src="/images/logo-elastic.png"
+          src="./images/logo-elastic.png"
           alt="elastic logo"
         />
       </div>
