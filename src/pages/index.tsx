@@ -8,24 +8,6 @@ const Index: FunctionComponent = () => {
       <Head>
         <title>Home</title>
       </Head>
-
-      <Wrapper>
-        <HomeHero />
-
-        <EuiSpacer size="xxl" />
-        <EuiSpacer size="xxl" />
-
-        <HomeWhy />
-
-        <EuiSpacer size="xxl" />
-        <EuiSpacer size="xxl" />
-        <EuiSpacer size="xxl" />
-
-        <HomeTemplates />
-
-        <EuiSpacer size="xxl" />
-        <EuiSpacer size="xxl" />
-      </Wrapper>
     </>
   );
 };
