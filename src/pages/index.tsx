@@ -59,11 +59,15 @@ const Index: FunctionComponent = () => {
         <h1>Which version would you like to explore?</h1>
       </EuiTitle>
       <EuiSpacer size="m" />
-      <EuiButton onClick={() => router.push('/8.3')} fullWidth>
+      <EuiButton
+        href="https://super-succotash-b4d4021d.pages.github.io/8.3"
+        fullWidth>
         v8.3 (May 24, 2022)
       </EuiButton>
       <EuiSpacer size="s" />
-      <EuiButton onClick={() => router.push('/8.4')} fullWidth>
+      <EuiButton
+        href="https://super-succotash-b4d4021d.pages.github.io/8.4"
+        fullWidth>
         v8.4 (Jul 26, 2022) <EuiBadge color="primary">In-progress</EuiBadge>
       </EuiButton>
       <EuiSpacer size="s" />
