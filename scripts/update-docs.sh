@@ -40,7 +40,7 @@ git add .
 git commit -m "Update gh-pages to $HASH"
 
 # And go back to the project source
-git checkout master
+git checkout main
 
 # Clean up after ourselves
 rm -rf "$BUILD_DIR"
@@ -50,6 +50,6 @@ cat >&2 <<EOF
 gh-pages updated to $HASH. You can now publish your changes. For example, if your
 git remote is 'upstream', then you could execute:
 
-    git push upstream master gh-pages
+    git push upstream main gh-pages
 
 EOF

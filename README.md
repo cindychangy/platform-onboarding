@@ -66,7 +66,7 @@ _🚩 This starter is not constantly maintained and may get out of sync with the
 
     1. Commit any pending changes
     1. Run `yarn build-docs`
-    1. Publish the `master` and `gh-pages` branches by pushing them to GitHub: `git push origin master gh-pages`
+    1. Publish the `main` and `gh-pages` branches by pushing them to GitHub: `git push origin main gh-pages`
     1. Edit your repository settings to ensure your repository is configured so that the `gh-pages` branch is used for serving the site. (You only need to do this once, but you have to push the branch before you can change this setting)
     1. Access your site at https://your-username.github.io/repo-name. There
        can be a slight delay before changes become visible.
