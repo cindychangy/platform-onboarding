@@ -15,7 +15,7 @@ import {
 } from '@elastic/eui';
 import { css } from '@emotion/react';
 
-import Navbar from '../../components/navbar/navbar';
+import Navbar from '../../../components/navbar/navbar';
 
 const Padding = css`
   padding: 40px 48px;

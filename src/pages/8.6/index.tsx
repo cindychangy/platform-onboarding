@@ -1,25 +1,25 @@
-import * as React from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 import {
-  EuiButton,
-  EuiFieldPassword,
-  EuiFieldText,
+  EuiImage,
   EuiFlexGroup,
   EuiFlexItem,
-  EuiFormRow,
-  EuiHorizontalRule,
-  EuiImage,
-  EuiPanel,
-  EuiSpacer,
-  EuiText,
   EuiTitle,
-  useEuiTheme,
+  EuiText,
+  EuiButton,
+  EuiSpacer,
+  EuiPanel,
+  EuiTextAlign,
+  EuiFormRow,
+  EuiFieldText,
+  EuiHorizontalRule,
 } from '@elastic/eui';
-import { css } from '@emotion/react';
+import Header from '../../components/header/header';
+import { homeStyles } from './index.styles';
 
-const IndexPage = () => {
-  const { euiTheme } = useEuiTheme();
-  const [isLoading, setIsLoading] = React.useState(false);
+const Homepage = () => {
+  const styles = homeStyles();
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
   const handleClick = () => {
@@ -29,145 +29,154 @@ const IndexPage = () => {
     }, 1000);
   };
 
-  const ContainerPadding = css`
-    @media only screen and (min-width: ${euiTheme.breakpoint.s}px) {
-      padding: 32px;
-    }
-  `;
-
-  const LogoPosition = css`
-    left: 50%;
-    position: absolute;
-    top: 40px;
-    transform: translate(-50%, 0);
-  `;
-
-  const PanelSizing = css`
-    margin: 0 auto;
-    max-width: 450px;
-    width: 100%;
-    @media only screen and (min-width: ${euiTheme.breakpoint.s}px) {
-      padding: 56px;
-    }
-  `;
-
   return (
     <>
-      <div css={LogoPosition}>
-        <EuiImage
-          size={170}
-          src="./images/logo-elastic.png"
-          alt="elastic logo"
-        />
-      </div>
-      <div css={ContainerPadding}>
-        <EuiFlexGroup alignItems="center" gutterSize="m" responsive={false}>
+      <div css={styles.container}>
+        <Header />
+        <EuiFlexGroup direction="column" css={styles.header}>
           <EuiFlexItem>
-            <EuiText textAlign="right" size="s">
-              <p
-                css={css`
-                  margin-bottom: 0 !important;
-                `}>
-                Already have an account?
-              </p>
+            <EuiTitle size="m">
+              <h1>Welcome to Elastic Cloud</h1>
+            </EuiTitle>
+            <EuiSpacer size="s" />
+            <EuiText color="subdued">
+              <p>Get started in minutes</p>
             </EuiText>
           </EuiFlexItem>
+        </EuiFlexGroup>
+      </div>
+      <div css={styles.formContainer}>
+        <EuiSpacer size="xxl" />
+        <EuiFlexGroup
+          direction="row"
+          justifyContent="center"
+          alignItems="flexStart">
           <EuiFlexItem grow={false}>
-            <EuiButton
-              fill
-              size="s"
-              css={css`
-                min-width: 0;
-              `}>
-              Log in
-            </EuiButton>
+            <EuiPanel paddingSize="l" css={styles.signUpPanel}>
+              <EuiTitle size="s">
+                <EuiTextAlign textAlign="center">
+                  <h3>Sign up for a free 14-day trial</h3>
+                </EuiTextAlign>
+              </EuiTitle>
+              <EuiSpacer size="s" />
+              <EuiText color="subdued" size="s">
+                <EuiTextAlign textAlign="center">
+                  <p>No credit card required</p>
+                </EuiTextAlign>
+              </EuiText>
+              <EuiFormRow label="Email">
+                <EuiFieldText icon="user" fullWidth />
+              </EuiFormRow>
+              <EuiFormRow label="Password">
+                <EuiFieldText icon="lock" type="dual" fullWidth />
+              </EuiFormRow>
+              <EuiSpacer size="l" />
+              <EuiButton
+                fill
+                fullWidth
+                isLoading={isLoading}
+                onClick={() => handleClick()}>
+                Start free trial
+              </EuiButton>
+              <EuiFlexGroup
+                alignItems="center"
+                gutterSize="s"
+                responsive={false}>
+                <EuiFlexItem>
+                  <EuiHorizontalRule />
+                </EuiFlexItem>
+                <EuiFlexItem grow={false}>
+                  <EuiText color="subdued" size="s">
+                    Or sign up with
+                  </EuiText>
+                </EuiFlexItem>
+                <EuiFlexItem>
+                  <EuiHorizontalRule />
+                </EuiFlexItem>
+              </EuiFlexGroup>
+              <EuiFlexGroup gutterSize="s" responsive={false}>
+                <EuiFlexItem>
+                  <EuiButton
+                    iconSide="left"
+                    iconType={'/images/icon-google.svg'}>
+                    Google
+                  </EuiButton>
+                </EuiFlexItem>
+                <EuiFlexItem>
+                  <EuiButton
+                    iconSide="left"
+                    iconType={'/images/icon-microsoft.svg'}>
+                    Microsoft
+                  </EuiButton>
+                </EuiFlexItem>
+              </EuiFlexGroup>
+              <EuiSpacer size="m" />
+              <EuiText color="subdued" size="xs" textAlign="center">
+                <p>
+                  By signing up, you acknowledge that you&apos;ve read and agree
+                  to our <a href="https://www.elastic.co">Terms of Service</a>
+                  &nbsp;and&nbsp;
+                  <a href="https://www.elastic.co">Privacy Statement</a>.
+                </p>
+              </EuiText>
+            </EuiPanel>
+          </EuiFlexItem>
+
+          <EuiFlexItem grow={false}>
+            <div css={styles.verticalRule}>
+              <EuiText color="subdued" size="s" css={styles.ruleText}>
+                OR
+              </EuiText>
+            </div>
+          </EuiFlexItem>
+
+          <EuiFlexItem grow={false}>
+            <EuiPanel paddingSize="l">
+              <EuiTitle size="s">
+                <EuiTextAlign textAlign="center">
+                  <h3>Subscribe via your cloud marketplace</h3>
+                </EuiTextAlign>
+              </EuiTitle>
+              <EuiSpacer size="s" />
+              <EuiText color="subdued" size="s">
+                <EuiTextAlign textAlign="center">
+                  Consolidate billing and utilize existing commitments
+                </EuiTextAlign>
+              </EuiText>
+              <EuiFlexGroup
+                direction="column"
+                gutterSize="s"
+                responsive={false}>
+                <EuiSpacer size="l" />
+                <EuiFlexItem>
+                  <EuiButton iconSide="left" iconType={'/images/icon-aws.svg'}>
+                    Amazon Web Services
+                  </EuiButton>
+                  <EuiSpacer size="m" />
+                </EuiFlexItem>
+                <EuiFlexItem>
+                  <EuiButton
+                    iconSide="left"
+                    iconType={'/images/icon-google.svg'}>
+                    Google Cloud
+                  </EuiButton>
+                  <EuiSpacer size="m" />
+                </EuiFlexItem>
+                <EuiFlexItem>
+                  <EuiButton
+                    iconSide="left"
+                    iconType={'/images/icon-azure.svg'}>
+                    Microsoft Azure
+                  </EuiButton>
+                  <EuiSpacer size="m" />
+                </EuiFlexItem>
+              </EuiFlexGroup>
+            </EuiPanel>
           </EuiFlexItem>
         </EuiFlexGroup>
-
-        <EuiSpacer size="xxl" />
-        <EuiSpacer size="xxl" />
-
-        <EuiPanel css={PanelSizing} paddingSize="l">
-          <EuiTitle className="eui-textCenter">
-            <h2>Start your free trial</h2>
-          </EuiTitle>
-          <EuiSpacer size="xs" />
-          <EuiText color="subdued" size="s" textAlign="center">
-            <p>No credit card required</p>
-          </EuiText>
-
-          <EuiSpacer size="l" />
-
-          <EuiFormRow label="Email">
-            <EuiFieldText icon="email" fullWidth />
-          </EuiFormRow>
-          <EuiSpacer size="m" />
-          <EuiFormRow label="Password">
-            <EuiFieldPassword type="dual" fullWidth />
-          </EuiFormRow>
-          <EuiSpacer size="l" />
-          <EuiButton
-            fill
-            fullWidth
-            isLoading={isLoading}
-            onClick={() => handleClick()}>
-            Sign up with email
-          </EuiButton>
-
-          <EuiSpacer size="m" />
-
-          <EuiFlexGroup alignItems="center" gutterSize="s" responsive={false}>
-            <EuiFlexItem>
-              <EuiHorizontalRule />
-            </EuiFlexItem>
-            <EuiFlexItem grow={false}>
-              <EuiText color="subdued" size="s">
-                Or sign up with
-              </EuiText>
-            </EuiFlexItem>
-            <EuiFlexItem>
-              <EuiHorizontalRule />
-            </EuiFlexItem>
-          </EuiFlexGroup>
-
-          <EuiSpacer size="m" />
-
-          <EuiFlexGroup gutterSize="s" responsive={false}>
-            <EuiFlexItem>
-              <EuiButton iconSide="left" iconType={'/images/icon-google.svg'}>
-                Google
-              </EuiButton>
-            </EuiFlexItem>
-            <EuiFlexItem>
-              <EuiButton
-                iconSide="left"
-                iconType={'/images/icon-microsoft.svg'}>
-                Microsoft
-              </EuiButton>
-            </EuiFlexItem>
-          </EuiFlexGroup>
-        </EuiPanel>
-
-        <EuiSpacer size="xl" />
-
-        <EuiText
-          color="subdued"
-          size="xs"
-          textAlign="center"
-          css={css`
-            margin: 0 auto;
-            max-width: 350px;
-          `}>
-          <p>
-            By signing up, you acknowledge that you&apos;ve read and agree to
-            our <a href="https://www.elastic.co">Terms of Service</a>
-            &nbsp;and&nbsp;
-            <a href="https://www.elastic.co">Privacy Statement</a>.
-          </p>
-        </EuiText>
       </div>
     </>
   );
 };
 
-export default IndexPage;
+export default Homepage;
