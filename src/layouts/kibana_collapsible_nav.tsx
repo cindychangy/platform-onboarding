@@ -13,11 +13,14 @@ import {
   EuiListGroup,
   useGeneratedHtmlId,
   EuiAvatar,
+  EuiButton,
 } from '@elastic/eui';
 import find from 'lodash/find';
 import findIndex from 'lodash/findIndex';
 import { css } from '@emotion/react';
 import ThemeSwitcher from '../components/chrome/theme_switcher';
+import Guide from '../components/guide/guide';
+import { kibanaLayoutStyles } from './kibana.styles';
 
 const pathPrefix = process.env.PATH_PREFIX;
 
@@ -39,10 +42,16 @@ const KibanaLinks: EuiPinnableListGroupItemProps[] = [
 
 const CollapsibleNav = () => {
   const [navIsOpen, setNavIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const styles = kibanaLayoutStyles();
 
   const breadcrumbs = [
     {
       text: 'Home',
+      href: '/8.6',
+    },
+    {
+      text: 'Guided Setup',
     },
   ];
 
@@ -213,8 +222,8 @@ const CollapsibleNav = () => {
   return (
     <>
       <EuiHeader
-        theme="dark"
         position="fixed"
+        theme="dark"
         sections={[
           {
             items: [
@@ -229,7 +238,7 @@ const CollapsibleNav = () => {
           },
           {
             items: [
-              <ThemeSwitcher key={useGeneratedHtmlId()} />,
+              <Guide key="guided-setup" />,
               <EuiHeaderSectionItemButton
                 key={useGeneratedHtmlId()}
                 aria-label="Account menu">
@@ -261,6 +270,8 @@ const CollapsibleNav = () => {
           },
         ]}
       />
+
+      {!!isOpen && <Guide />}
     </>
   );
 };

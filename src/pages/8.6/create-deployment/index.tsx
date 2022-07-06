@@ -38,7 +38,7 @@ const CreateDeployment = () => {
   const handleClick = () => {
     setIsLoading(true);
     setTimeout(() => {
-      router.push('/8.6/getting-started');
+      router.push('/8.6/guided-setup');
     }, 3500);
   };
 

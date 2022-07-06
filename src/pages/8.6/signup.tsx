@@ -32,20 +32,18 @@ const Signup = () => {
 
   return (
     <>
-      <div css={styles.container}>
-        <Header accountType="signup" />
-        <EuiFlexGroup direction="column" css={styles.header}>
-          <EuiFlexItem>
-            <EuiTitle size="m">
-              <h1>Welcome to Elastic Cloud</h1>
-            </EuiTitle>
-            <EuiSpacer size="s" />
-            <EuiText color="subdued">
-              <p>Get started in minutes</p>
-            </EuiText>
-          </EuiFlexItem>
-        </EuiFlexGroup>
-      </div>
+      <Header accountType="signup" />
+      <EuiFlexGroup direction="column" css={styles.header}>
+        <EuiFlexItem>
+          <EuiTitle size="m">
+            <h1>Welcome to Elastic Cloud</h1>
+          </EuiTitle>
+          <EuiSpacer size="s" />
+          <EuiText color="subdued">
+            <p>Get started in minutes</p>
+          </EuiText>
+        </EuiFlexItem>
+      </EuiFlexGroup>
       <div css={styles.formContainer}>
         <EuiSpacer size="xxl" />
         <EuiFlexGroup

@@ -1,15 +1,7 @@
 import { css } from '@emotion/react';
 
-export const gettingStartedStyles = euiTheme => ({
-  bg: css`
-    background: ${euiTheme.colors.emptyShade};
-    height: 100vh;
-  `,
-
+export const gettingSetupStyles = euiTheme => ({
   container: css`
-    max-width: 1200px;
-    margin: auto;
-    width: 100%;
     text-align: center;
     margin-top: 100px;
   `,

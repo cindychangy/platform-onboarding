@@ -31,7 +31,7 @@ const Header = ({ accountType, signedIn }: HeaderProps) => {
           <EuiFlexGroup justifyContent="flexEnd" alignItems="center">
             <EuiFlexItem grow={false}>
               <EuiButton minWidth={0} fill>
-                Log in
+                Log out
               </EuiButton>
             </EuiFlexItem>
           </EuiFlexGroup>

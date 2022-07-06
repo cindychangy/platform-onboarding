@@ -1,9 +1,11 @@
 import { FunctionComponent } from 'react';
 import { AppProps } from 'next/app';
+import { Global } from '@emotion/react';
 import Head from 'next/head';
 import { EuiErrorBoundary } from '@elastic/eui';
 import Chrome from '../components/chrome';
 import { Theme } from '../components/theme/theme';
+import { globalStyes } from '../styles/global.styles';
 
 /**
  * Next.js uses the App component to initialize pages. You can override it
@@ -18,7 +20,7 @@ const EuiApp: FunctionComponent<AppProps> = ({ Component, pageProps }) => (
       {/* You can override this in other pages - see index.tsx for an example */}
       <title>Platform Onboarding Prototype</title>
     </Head>
-    {/* <Global styles={globalStyes} /> */}
+    <Global styles={globalStyes} />
     <Theme>
       <Chrome>
         <EuiErrorBoundary>
