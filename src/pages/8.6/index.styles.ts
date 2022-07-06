@@ -43,3 +43,5 @@ export const homeStyles = euiTheme => ({
     padding: 8px 0;
   `,
 });
+
+export default homeStyles;

@@ -25,3 +25,5 @@ export const gettingStartedStyles = euiTheme => ({
     margin: auto;
   `,
 });
+
+export default gettingStartedStyles;
