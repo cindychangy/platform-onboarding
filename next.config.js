@@ -17,7 +17,7 @@ const { IgnorePlugin } = require('webpack');
  */
 const usePathPrefix = process.env.PATH_PREFIX === 'true';
 
-const pathPrefix = usePathPrefix ? derivePathPrefix() : '';
+const pathPrefix = usePathPrefix ? derivePathPrefix() : './';
 
 const themeConfig = buildThemeConfig();
 
