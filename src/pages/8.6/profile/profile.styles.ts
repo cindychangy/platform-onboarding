@@ -11,5 +11,3 @@ export const profileStyles = () => ({
     padding: 30px;
   `,
 });
-
-export default profileStyles;

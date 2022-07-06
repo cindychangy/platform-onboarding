@@ -17,5 +17,3 @@ export const deploymentStyles = () => ({
     padding: 24px 48px !important;
   `,
 });
-
-export default deploymentStyles;
