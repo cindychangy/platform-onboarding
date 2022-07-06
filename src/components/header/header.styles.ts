@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 
 export const headerStyles = () => ({
   container: css`
-    margin: 35px 30px;
+    margin: 35px 30px 0 30px;
     position: relative;
   `,
 

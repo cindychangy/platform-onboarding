@@ -71,7 +71,7 @@ const Profile = () => {
 
   return (
     <>
-      <Header />
+      <Header signedIn />
       <div css={styles.formContainer}>
         <EuiPanel paddingSize="l">
           <div css={styles.panel}>

@@ -17,14 +17,20 @@ export const homeStyles = euiTheme => ({
     top: -50px;
   `,
 
-  signUpPanel: css`
-    max-width: 450px;
-    width: 100%;
+  password: css`
+    text-align: center;
+  `,
+
+  formPanel: css`
+    width: 430px;
+  `,
+
+  panelSpace: css`
+    padding: 0 8px;
   `,
 
   verticalRule: css`
     text-align: center;
-    background: #d3dae6;
     background: ${euiTheme.colors.lightShade};
     width: 1px;
     height: 50%;
