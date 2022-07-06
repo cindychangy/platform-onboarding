@@ -15,7 +15,7 @@ import {
   useEuiTheme,
 } from '@elastic/eui';
 import Header from '../../components/header/header';
-import { homeStyles } from './index.styles';
+import { homeStyles } from '../../styles/home.styles';
 
 const Signup = () => {
   const { euiTheme } = useEuiTheme();

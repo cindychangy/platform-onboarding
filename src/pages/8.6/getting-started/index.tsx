@@ -14,7 +14,7 @@ import {
 } from '@elastic/eui';
 import { useRouter } from 'next/router';
 import Navbar from '../../../components/navbar/navbar';
-import { gettingStartedStyles } from './geting-started.styles';
+import { gettingStartedStyles } from '../../../styles/geting-started.styles';
 
 const BREADCRUMBS = [
   {
