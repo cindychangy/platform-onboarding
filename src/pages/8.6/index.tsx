@@ -89,14 +89,14 @@ const Homepage = () => {
                   <EuiFlexItem>
                     <EuiButton
                       iconSide="left"
-                      iconType={'./images/icon-google.svg'}>
+                      iconType={'/images/icon-google.svg'}>
                       Google
                     </EuiButton>
                   </EuiFlexItem>
                   <EuiFlexItem>
                     <EuiButton
                       iconSide="left"
-                      iconType={'./images/icon-microsoft.svg'}>
+                      iconType={'/images/icon-microsoft.svg'}>
                       Microsoft
                     </EuiButton>
                   </EuiFlexItem>
