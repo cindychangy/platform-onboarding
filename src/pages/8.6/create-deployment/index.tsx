@@ -1,70 +1,54 @@
 import { useState } from 'react';
-import { useRouter } from 'next/router';
 import {
   EuiButton,
+  EuiSpacer,
+  EuiPanel,
+  EuiTitle,
+  EuiText,
+  EuiHorizontalRule,
   EuiFieldText,
   EuiFlexGroup,
   EuiFlexItem,
-  EuiHorizontalRule,
-  EuiLink,
-  EuiPanel,
-  EuiSpacer,
-  EuiText,
-  EuiTitle,
   EuiIcon,
+  EuiLink,
 } from '@elastic/eui';
-import { css } from '@emotion/react';
-
 import Navbar from '../../../components/navbar/navbar';
+import { deploymentStyles } from './create-deployment.styles';
+import { useRouter } from 'next/router';
 
-const Padding = css`
-  padding: 40px 48px;
-`;
+const BREADCRUMBS = [
+  {
+    text: 'Cloud',
+    href: '#',
+  },
+  {
+    text: 'Deployments',
+    href: '#',
+  },
+  {
+    text: 'Create',
+  },
+];
 
-const PaddingSmall = css`
-  border-radius: 0 !important;
-  box-shadow: rgba(0, 0, 0, 0.1) 0 0 12px !important;
-  padding: 24px 48px !important;
-`;
-
-const Center = css`
-  margin: 0 auto;
-  max-width: 650px;
-  overflow: hidden;
-`;
-
-const CreateDeploymentPage = () => {
-  const [isLoading, setIsLoading] = useState(false);
+const CreateDeployment = () => {
+  const styles = deploymentStyles();
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleClick = () => {
     setIsLoading(true);
     setTimeout(() => {
-      router.push('/8.6/question');
+      router.push('/8.6/getting-started');
     }, 3500);
   };
 
   return (
     <>
-      <Navbar
-        breadcrumbs={[
-          {
-            text: 'Cloud',
-            href: '#',
-          },
-          {
-            text: 'Deployments',
-            href: '#',
-          },
-          {
-            text: 'Create',
-          },
-        ]}
-      />
+      <Navbar breadcrumbs={BREADCRUMBS} />
       <EuiSpacer size="xxl" />
-      <EuiPanel paddingSize="none" css={Center}>
-        <div css={Padding}>
-          <EuiTitle size="m">
+      <EuiPanel paddingSize="none" css={styles.panel}>
+        <div css={styles.panelContainer}>
+          <EuiTitle>
             <h2>Create your first deployment</h2>
           </EuiTitle>
           <EuiSpacer size="s" />
@@ -75,7 +59,10 @@ const CreateDeploymentPage = () => {
               data.
             </p>
           </EuiText>
-          <EuiHorizontalRule margin="xl" />
+          <EuiSpacer size="s" />
+          <EuiHorizontalRule />
+          <EuiSpacer size="s" />
+
           <EuiTitle size="xs">
             <h5>Name</h5>
           </EuiTitle>
@@ -83,7 +70,6 @@ const CreateDeploymentPage = () => {
           <EuiFieldText fullWidth placeholder="My deployment" />
 
           <EuiSpacer size="l" />
-
           <EuiFlexGroup gutterSize="s">
             <EuiFlexItem grow={false}>
               <EuiIcon type="/images/icon-gcp.svg" size="xxl" />
@@ -91,7 +77,7 @@ const CreateDeploymentPage = () => {
             <EuiFlexItem>
               <EuiText size="s">
                 <p>
-                  GCP Iowa (us-central1) &nbsp;{}
+                  GCP Iowa (us-central1) &nbsp;{' '}
                   <EuiLink href="#">Edit settings</EuiLink>
                 </p>
               </EuiText>
@@ -101,7 +87,7 @@ const CreateDeploymentPage = () => {
             </EuiFlexItem>
           </EuiFlexGroup>
         </div>
-        <EuiPanel css={PaddingSmall}>
+        <EuiPanel css={styles.buttonPanel}>
           <EuiButton fill isLoading={isLoading} onClick={() => handleClick()}>
             Create deployment
           </EuiButton>
@@ -111,4 +97,4 @@ const CreateDeploymentPage = () => {
   );
 };
 
-export default CreateDeploymentPage;
+export default CreateDeployment;

@@ -17,7 +17,45 @@ import {
 import Header from '../../../components/header/header';
 import { profileStyles } from './profile.styles';
 
-const ProfilePage = () => {
+const EXPERIENCE = [
+  {
+    id: `new`,
+    label: `New`,
+  },
+  {
+    id: `familiar`,
+    label: `Familiar`,
+  },
+  {
+    id: `expert`,
+    label: `Expert`,
+  },
+];
+
+const PURPOSE = [
+  {
+    id: `purpose__0`,
+    label: 'Evaluate Elastic for my project or use case',
+  },
+  {
+    id: `purpose__1`,
+    label: 'Set up Elastic for an active project',
+  },
+  {
+    id: `purpose__2`,
+    label: 'Migrate an existing Elasticsearch environment',
+  },
+  {
+    id: `purpose__3`,
+    label: 'Learn more about Elastic',
+  },
+  {
+    id: `purpose__4`,
+    label: 'Do something else',
+  },
+];
+
+const Profile = () => {
   const styles = profileStyles();
   const router = useRouter();
   const [experience, setExperience] = useState('');
@@ -30,44 +68,6 @@ const ProfilePage = () => {
       router.push('/8.6/create-deployment');
     }, 500);
   };
-
-  const optionsExperience = [
-    {
-      id: `new`,
-      label: `New`,
-    },
-    {
-      id: `familiar`,
-      label: `Familiar`,
-    },
-    {
-      id: `expert`,
-      label: `Expert`,
-    },
-  ];
-
-  const optionsPurpose = [
-    {
-      id: `purpose__0`,
-      label: 'Evaluate Elastic for my project or use case',
-    },
-    {
-      id: `purpose__1`,
-      label: 'Set up Elastic for an active project',
-    },
-    {
-      id: `purpose__2`,
-      label: 'Migrate an existing Elasticsearch environment',
-    },
-    {
-      id: `purpose__3`,
-      label: 'Learn more about Elastic',
-    },
-    {
-      id: `purpose__4`,
-      label: 'Do something else',
-    },
-  ];
 
   return (
     <>
@@ -110,7 +110,7 @@ const ProfilePage = () => {
                 color="primary"
                 isFullWidth
                 onChange={(experience: string) => setExperience(experience)}
-                options={optionsExperience}
+                options={EXPERIENCE}
               />
 
               <EuiSpacer size="l" />
@@ -124,7 +124,7 @@ const ProfilePage = () => {
               <EuiPanel color="subdued">
                 <EuiRadioGroup
                   idSelected={purpose}
-                  options={optionsPurpose}
+                  options={PURPOSE}
                   onChange={(purpose: string) => setPurpose(purpose)}
                   compressed
                 />
@@ -150,4 +150,4 @@ const ProfilePage = () => {
   );
 };
 
-export default ProfilePage;
+export default Profile;

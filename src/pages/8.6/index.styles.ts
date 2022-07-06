@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 
-export const homeStyles = () => ({
+export const homeStyles = euiTheme => ({
   container: css`
     padding: 30px 40px 0 0;
   `,
@@ -25,6 +25,7 @@ export const homeStyles = () => ({
   verticalRule: css`
     text-align: center;
     background: #d3dae6;
+    background: ${euiTheme.colors.lightShade};
     width: 1px;
     height: 50%;
     margin: 0 40px;

@@ -3,7 +3,6 @@ import {
   EuiHeaderLogo,
   EuiHeaderSectionItemButton,
   EuiAvatar,
-  EuiIcon,
   EuiBreadcrumb,
 } from '@elastic/eui';
 
@@ -49,17 +48,6 @@ const Navbar = ({ breadcrumbs }: NavbarProps) => {
             ],
             breadcrumbs: breadcrumbs,
             borders: 'right',
-          },
-          {
-            items: [
-              <EuiHeaderSectionItemButton
-                aria-label="News feed: Updates available"
-                notification={true}
-                key="news-feed">
-                <EuiIcon type="cheer" size="m" />
-              </EuiHeaderSectionItemButton>,
-            ],
-            borders: 'none',
           },
         ]}
       />

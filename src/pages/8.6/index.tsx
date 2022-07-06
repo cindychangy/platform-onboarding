@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import {
-  EuiImage,
   EuiFlexGroup,
   EuiFlexItem,
   EuiTitle,
@@ -13,12 +12,14 @@ import {
   EuiFormRow,
   EuiFieldText,
   EuiHorizontalRule,
+  useEuiTheme,
 } from '@elastic/eui';
 import Header from '../../components/header/header';
 import { homeStyles } from './index.styles';
 
 const Homepage = () => {
-  const styles = homeStyles();
+  const { euiTheme } = useEuiTheme();
+  const styles = homeStyles(euiTheme);
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
