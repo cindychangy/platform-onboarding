@@ -7,7 +7,6 @@ import {
 } from '@elastic/eui';
 import { useRouter } from 'next/router';
 import { headerStyles } from './header.styles';
-import logo from '../../../public/images/elastic-logo.svg';
 
 type HeaderProps = {
   accountType?: 'login' | 'signup';
@@ -60,7 +59,7 @@ const Header = ({ accountType, signedIn }: HeaderProps) => {
         )}
         <EuiImage
           size={170}
-          src="/images/logo-elastic.png"
+          src="./images/logo-elastic.png"
           alt="Elastic logo"
           css={styles.logo}
         />
