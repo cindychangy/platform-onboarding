@@ -39,8 +39,7 @@ const Guide = () => {
         <EuiFlyout
           ownFocus
           onClose={() => setIsOpen(!isOpen)}
-          aria-labelledby="guided-tour"
-          css={styles.flyout}>
+          aria-labelledby="guided-tour">
           <EuiFlyoutHeader hasBorder>
             <EuiSpacer size="l" />
             <a href="#">
@@ -53,111 +52,117 @@ const Guide = () => {
             </EuiTitle>
           </EuiFlyoutHeader>
           <EuiFlyoutBody>
-            <div css={styles.videoContainer}>
-              <img
-                src="../images/guided-setup-video.png"
-                alt="video setup"
-                width="100%"
-                height="257"
-              />
-            </div>
-            {/* <EuiProgress value={90} max={100} size="l" label="Progress" /> */}
-            <EuiText size="m">
-              <p>
-                We'll help you quickly gain visibility into your environment
-                using Elastic's out-of-the-box integrations. Gain deep insights
-                from your logs, metrics, and traces, and proactively stay detect
-                issues and take action to resolve issues.
-              </p>
-            </EuiText>
-            <EuiSpacer size="xxl" />
+            <div>
+              <div css={styles.videoContainer}>
+                <img
+                  src="../images/guided-setup-video.png"
+                  alt="video setup"
+                  width="100%"
+                  height="257"
+                />
+              </div>
+              {/* <EuiProgress value={90} max={100} size="l" label="Progress" /> */}
+              <EuiText size="m">
+                <p>
+                  We'll help you quickly gain visibility into your environment
+                  using Elastic's out-of-the-box integrations. Gain deep
+                  insights from your logs, metrics, and traces, and proactively
+                  stay detect issues and take action to resolve issues.
+                </p>
+              </EuiText>
+              <EuiSpacer size="xxl" />
 
-            <EuiFlexGroup gutterSize="none">
-              <EuiFlexItem grow={false}>
-                <div css={styles.checkEmpty} />
-              </EuiFlexItem>
-              <EuiFlexItem grow={false}>
-                <EuiAccordion
-                  id="step1"
-                  arrowDisplay="right"
-                  buttonContent="Monitor your environment"
-                  paddingSize="none">
-                  <EuiPanel paddingSize="none">
-                    <EuiSpacer size="s" />
-                    <EuiText size="s">
-                      Adding data is fast and easy with our out-of-the-box
-                      integrations. Quickly monitor popular cloud services,
-                      applications, systems, containers, and more.
-                    </EuiText>
-                    <EuiSpacer size="m" />
-                    <EuiFlexGroup justifyContent="flexEnd">
-                      <EuiFlexItem grow={false}>
-                        <EuiButton fill href="">
-                          Continue
-                        </EuiButton>
-                      </EuiFlexItem>
-                    </EuiFlexGroup>
-                  </EuiPanel>
-                </EuiAccordion>
-              </EuiFlexItem>
-            </EuiFlexGroup>
-
-            <EuiHorizontalRule margin="l" />
-            <EuiFlexGroup gutterSize="none">
-              <EuiFlexItem grow={false}>
+              <EuiFlexGroup gutterSize="none">
                 <EuiFlexItem grow={false}>
-                  <div css={styles.checkFill}>
-                    <EuiIcon
-                      type="check"
-                      color="ghost"
-                      style={{
-                        width: '20px',
-                        height: '20px',
-                      }}
-                    />
-                  </div>
-                </EuiFlexItem>
-              </EuiFlexItem>
-              <EuiFlexItem grow={false}>
-                <EuiAccordion
-                  id="step1"
-                  arrowDisplay="right"
-                  buttonContent="Tour Elastic Observability"
-                  paddingSize="none">
-                  <EuiPanel paddingSize="none">
-                    <EuiSpacer size="s" />
-                    <EuiText size="s">
-                      See how you can easily unlock the power of the Elastic
-                      search platform to query your logs, view your
-                      infrastructure, monitor applications, visualize your data,
-                      and more.
-                    </EuiText>
-                    <EuiSpacer size="m" />
-                    <EuiFlexGroup justifyContent="flexEnd">
-                      <EuiFlexItem grow={false}>
-                        <EuiButton fill href="">
-                          Continue
-                        </EuiButton>
-                      </EuiFlexItem>
-                    </EuiFlexGroup>
-                  </EuiPanel>
-                </EuiAccordion>
-              </EuiFlexItem>
-            </EuiFlexGroup>
-            <EuiHorizontalRule margin="l" />
-
-            <EuiSpacer size="m" />
-            <div css={styles.panelFooter}>
-              <EuiFlexGroup>
-                <EuiFlexItem grow={false}>
-                  <EuiButtonEmpty>Close</EuiButtonEmpty>
+                  <div css={styles.checkEmpty} />
                 </EuiFlexItem>
                 <EuiFlexItem grow={false}>
-                  <EuiButton fill href="">
-                    Start Guide
-                  </EuiButton>
+                  <EuiAccordion
+                    id="step1"
+                    arrowDisplay="right"
+                    buttonContent="Monitor your environment"
+                    paddingSize="none">
+                    <EuiPanel paddingSize="none">
+                      <EuiSpacer size="s" />
+                      <EuiText size="s">
+                        Adding data is fast and easy with our out-of-the-box
+                        integrations. Quickly monitor popular cloud services,
+                        applications, systems, containers, and more.
+                      </EuiText>
+                      <EuiSpacer size="m" />
+                      <EuiFlexGroup justifyContent="flexEnd">
+                        <EuiFlexItem grow={false}>
+                          <EuiButton fill href="">
+                            Continue
+                          </EuiButton>
+                        </EuiFlexItem>
+                      </EuiFlexGroup>
+                    </EuiPanel>
+                  </EuiAccordion>
                 </EuiFlexItem>
               </EuiFlexGroup>
+
+              <EuiHorizontalRule margin="l" />
+              <EuiFlexGroup gutterSize="none">
+                <EuiFlexItem grow={false}>
+                  <EuiFlexItem grow={false}>
+                    <div css={styles.checkFill}>
+                      <EuiIcon
+                        type="check"
+                        color="ghost"
+                        style={{
+                          width: '20px',
+                          height: '20px',
+                        }}
+                      />
+                    </div>
+                  </EuiFlexItem>
+                </EuiFlexItem>
+                <EuiFlexItem grow={false}>
+                  <EuiAccordion
+                    id="step1"
+                    arrowDisplay="right"
+                    buttonContent="Tour Elastic Observability"
+                    paddingSize="none">
+                    <EuiPanel paddingSize="none">
+                      <EuiSpacer size="s" />
+                      <EuiText size="s">
+                        See how you can easily unlock the power of the Elastic
+                        search platform to query your logs, view your
+                        infrastructure, monitor applications, visualize your
+                        data, and more.
+                      </EuiText>
+                      <EuiSpacer size="m" />
+                      <EuiFlexGroup justifyContent="flexEnd">
+                        <EuiFlexItem grow={false}>
+                          <EuiButton fill href="">
+                            Continue
+                          </EuiButton>
+                        </EuiFlexItem>
+                      </EuiFlexGroup>
+                    </EuiPanel>
+                  </EuiAccordion>
+                </EuiFlexItem>
+              </EuiFlexGroup>
+
+              <EuiSpacer size="m" />
+            </div>
+
+            <div css={styles.panelFooter}>
+              <div css={styles.panelFooter}>
+                <EuiFlexGroup>
+                  <EuiFlexItem grow={false}>
+                    <EuiButtonEmpty onClick={() => setIsOpen(!isOpen)}>
+                      Close
+                    </EuiButtonEmpty>
+                  </EuiFlexItem>
+                  <EuiFlexItem grow={false}>
+                    <EuiButton fill href="">
+                      Start Guide
+                    </EuiButton>
+                  </EuiFlexItem>
+                </EuiFlexGroup>
+              </div>
             </div>
           </EuiFlyoutBody>
         </EuiFlyout>

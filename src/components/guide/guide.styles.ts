@@ -14,14 +14,8 @@ export const guideStyles = () => ({
     display: flex;
   `,
 
-  flyout: css`
-    position: relative;
-  `,
-
   panelFooter: css`
-    position: absolute;
-    bottom: 25px;
-    right: 25px;
+    align-self: flex-end;
   `,
 
   checkEmpty: css`

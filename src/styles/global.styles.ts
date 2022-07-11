@@ -33,5 +33,7 @@ export const globalStyes = css`
   [aria-labelledby='guided-tour'] .euiFlyoutBody__overflowContent {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
   }
 `;

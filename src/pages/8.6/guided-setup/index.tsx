@@ -4,6 +4,7 @@ import {
   EuiSpacer,
   EuiTitle,
   EuiText,
+  EuiLink,
   EuiTextColor,
   EuiCard,
   EuiFlexGroup,
@@ -89,16 +90,14 @@ const GettingStarted = () => {
 
       <EuiFlexGroup alignItems="center" justifyContent="spaceBetween">
         <EuiFlexItem grow={false}>
-          <EuiButtonEmpty iconType="indexOpen" href="" flush="left">
+          <EuiButtonEmpty iconType="indexOpen" href="">
             Not ready to dive in? Check out our sample data.
           </EuiButtonEmpty>
         </EuiFlexItem>
         <EuiFlexItem grow={false}>
-          <EuiText>
-            <EuiTextColor color="subdued">
-              <small>I’ll explore on my own (skip)</small>
-            </EuiTextColor>
-          </EuiText>
+          <EuiLink href="" color="subdued">
+            I’ll explore on my own (skip)
+          </EuiLink>
         </EuiFlexItem>
       </EuiFlexGroup>
     </KibanaLayout>
