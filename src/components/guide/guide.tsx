@@ -16,7 +16,6 @@ import {
   EuiPanel,
   // EuiProgress,
 } from '@elastic/eui';
-import Image from 'next/image';
 import { guideStyles } from './guide.styles';
 
 const Guide = () => {
@@ -55,12 +54,11 @@ const Guide = () => {
           </EuiFlyoutHeader>
           <EuiFlyoutBody>
             <div css={styles.videoContainer}>
-              <Image
-                src="/images/guided-setup-video.png"
+              <img
+                src="../../images/guided-setup-video.png"
                 alt="video setup"
-                layout="intrinsic"
-                width={500}
-                height={257}
+                width="500"
+                height="257"
               />
             </div>
             {/* <EuiProgress value={90} max={100} size="l" label="Progress" /> */}

@@ -19,6 +19,8 @@ module.exports = {
     // the linter.
     '@typescript-eslint/no-non-null-assertion': 'off',
 
+    '@next/next/no-img-element': 'off',
+
     // Accessibility is important to EUI. Enforce all a11y rules.
     'jsx-a11y/accessible-emoji': 'error',
     'jsx-a11y/alt-text': 'error',
