@@ -57,7 +57,7 @@ const Guide = () => {
               <img
                 src="../../images/guided-setup-video.png"
                 alt="video setup"
-                width="500"
+                width="100%"
                 height="257"
               />
             </div>
