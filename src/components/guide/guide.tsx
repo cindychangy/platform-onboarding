@@ -55,7 +55,7 @@ const Guide = () => {
           <EuiFlyoutBody>
             <div css={styles.videoContainer}>
               <img
-                src="../../images/guided-setup-video.png"
+                src="../images/guided-setup-video.png"
                 alt="video setup"
                 width="100%"
                 height="257"
