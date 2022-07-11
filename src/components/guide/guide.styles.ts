@@ -7,10 +7,37 @@ export const guideStyles = () => ({
 
   videoContainer: css`
     margin: auto;
-    width: 85%;
-    height: 200px;
+    width: 100%;
+    height: 257px;
     background: #f7f7f7;
     margin-bottom: 20px;
     display: flex;
+  `,
+
+  flyout: css`
+    position: relative;
+  `,
+
+  panelFooter: css`
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+  `,
+
+  checkEmpty: css`
+    border: 2px solid #00bfb3;
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    margin-right: 8px;
+  `,
+
+  checkFill: css`
+    border: 2px solid #00bfb3;
+    background: #00bfb3;
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    margin-right: 8px;
   `,
 });
