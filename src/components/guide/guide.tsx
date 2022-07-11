@@ -11,6 +11,7 @@ import {
   EuiAccordion,
   EuiPanel,
 } from '@elastic/eui';
+import Image from 'next/image';
 import { guideStyles } from './guide.styles';
 
 const Guide = () => {
@@ -48,7 +49,10 @@ const Guide = () => {
           </EuiFlyoutHeader>
           <EuiFlyoutBody>
             <div css={styles.videoContainer}>
-              <img src="../../images/guided-setup-video.png" />
+              <Image
+                src="../../images/guided-setup-video.png"
+                alt="video setup"
+              />
             </div>
             <EuiText size="m">
               <p>
