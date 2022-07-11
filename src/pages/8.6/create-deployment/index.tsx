@@ -39,7 +39,7 @@ const CreateDeployment = () => {
     setIsLoading(true);
     setTimeout(() => {
       router.push('/8.6/guided-setup');
-    }, 3500);
+    }, 1500);
   };
 
   return (
@@ -72,7 +72,7 @@ const CreateDeployment = () => {
           <EuiSpacer size="l" />
           <EuiFlexGroup gutterSize="s">
             <EuiFlexItem grow={false}>
-              <EuiIcon type="/images/icon-gcp.svg" size="xxl" />
+              <EuiIcon type="../images/icon-gcp.svg" size="xxl" />
             </EuiFlexItem>
             <EuiFlexItem>
               <EuiText size="s">

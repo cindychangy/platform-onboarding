@@ -97,14 +97,14 @@ const Signup = () => {
                 <EuiFlexItem>
                   <EuiButton
                     iconSide="left"
-                    iconType={'/images/icon-google.svg'}>
+                    iconType={'./images/icon-google.svg'}>
                     Google
                   </EuiButton>
                 </EuiFlexItem>
                 <EuiFlexItem>
                   <EuiButton
                     iconSide="left"
-                    iconType={'/images/icon-microsoft.svg'}>
+                    iconType={'./images/icon-microsoft.svg'}>
                     Microsoft
                   </EuiButton>
                 </EuiFlexItem>
@@ -156,7 +156,7 @@ const Signup = () => {
                 <EuiFlexItem>
                   <EuiButton
                     iconSide="left"
-                    iconType={'/images/icon-google.svg'}>
+                    iconType={'./images/icon-google.svg'}>
                     Google Cloud
                   </EuiButton>
                   <EuiSpacer size="m" />
@@ -164,7 +164,7 @@ const Signup = () => {
                 <EuiFlexItem>
                   <EuiButton
                     iconSide="left"
-                    iconType={'/images/icon-azure.svg'}>
+                    iconType={'./images/icon-azure.svg'}>
                     Microsoft Azure
                   </EuiButton>
                   <EuiSpacer size="m" />

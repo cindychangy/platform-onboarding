@@ -46,7 +46,7 @@ const GettingStarted = () => {
   const router = useRouter();
 
   return (
-    <KibanaLayout template="empty">
+    <KibanaLayout template="empty" style={{ background: '#fff' }}>
       <div css={styles.container}>
         <EuiTitle size="l">
           <h1>What would you like to do first?</h1>
@@ -79,7 +79,7 @@ const GettingStarted = () => {
               hasBorder
               textAlign="center"
               display="transparent"
-              onClick={() => router.push('/')}
+              onClick={() => router.push('#')}
             />
           </EuiFlexItem>
         ))}

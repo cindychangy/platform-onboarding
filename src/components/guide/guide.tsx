@@ -47,6 +47,9 @@ const Guide = () => {
             </EuiTitle>
           </EuiFlyoutHeader>
           <EuiFlyoutBody>
+            <div css={styles.videoContainer}>
+              <img src="../../images/guided-setup-video.png" />
+            </div>
             <EuiText size="m">
               <p>
                 This guide will help you quickly gain visibility into your

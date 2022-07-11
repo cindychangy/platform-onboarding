@@ -14,7 +14,7 @@ const KibanaLayout: FunctionComponent<KibanaLayoutProps> = ({
     <div css={styles.mainWrapper}>
       <CollapsibleNav />
 
-      <div css={styles.contentWrapper}>
+      <div css={styles.contentWrapper} className="fullBody">
         <EuiPageTemplate restrictWidth {...rest}>
           {children}
         </EuiPageTemplate>

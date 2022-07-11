@@ -59,7 +59,9 @@ const Header = ({ accountType, signedIn }: HeaderProps) => {
         )}
         <EuiImage
           size={170}
-          src="/images/logo-elastic.png"
+          src={
+            login ? './images/logo-elastic.png' : '../images/logo-elastic.png'
+          }
           alt="Elastic logo"
           css={styles.logo}
         />
