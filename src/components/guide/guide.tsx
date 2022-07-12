@@ -16,9 +16,13 @@ import {
 import GuideSection from './guide-section';
 import { guideStyles } from './guide.styles';
 
-const Guide = () => {
+type GuideProps = {
+  guideOpen: boolean;
+  onClick: () => void;
+};
+
+const Guide = ({ guideOpen, onClick }: GuideProps) => {
   const styles = guideStyles();
-  const [guideOpen, setGuide] = useState(false);
 
   const GUIDE_DATA = [
     {
@@ -54,20 +58,17 @@ const Guide = () => {
           color="success"
           size="s"
           iconType="sortDown"
-          onClick={() => setGuide(!guideOpen)}
+          onClick={onClick}
           key="guided-tour"
           fill>
           Guided Setup
         </EuiButton>
       </div>
       {!!guideOpen && (
-        <EuiFlyout
-          ownFocus
-          onClose={() => setGuide(!guideOpen)}
-          aria-labelledby="guided-tour">
+        <EuiFlyout ownFocus onClose={onClick} aria-labelledby="guided-tour">
           <EuiFlyoutHeader hasBorder>
             <EuiSpacer size="l" />
-            <a href="#">
+            <a href="#" onClick={onClick}>
               <EuiIcon type="arrowLeft" size="m" />
               Back to guides
             </a>
@@ -113,9 +114,7 @@ const Guide = () => {
               <div css={styles.panelFooter}>
                 <EuiFlexGroup>
                   <EuiFlexItem grow={false}>
-                    <EuiButtonEmpty onClick={() => setGuide(!guideOpen)}>
-                      Close
-                    </EuiButtonEmpty>
+                    <EuiButtonEmpty onClick={onClick}>Close</EuiButtonEmpty>
                   </EuiFlexItem>
                   <EuiFlexItem grow={false}>
                     <EuiButton fill href="">

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   EuiBadge,
   EuiButtonEmpty,
@@ -13,7 +14,6 @@ import {
   EuiHorizontalRule,
   useEuiTheme,
 } from '@elastic/eui';
-import { useRouter } from 'next/router';
 import KibanaLayout from '../../../layouts/kibana';
 import { gettingSetupStyles } from '../../../styles/guided-setup.styles';
 
@@ -44,10 +44,18 @@ const CARDS = [
 const GettingStarted = () => {
   const { euiTheme } = useEuiTheme();
   const styles = gettingSetupStyles(euiTheme);
-  const router = useRouter();
+  const [guideOpen, setGuide] = useState(false);
+
+  const handleGuideClick = () => {
+    setGuide(!guideOpen);
+  };
 
   return (
-    <KibanaLayout template="empty" style={{ background: '#fff' }}>
+    <KibanaLayout
+      template="empty"
+      style={{ background: '#fff' }}
+      guideOpen={guideOpen}
+      onClick={handleGuideClick}>
       <div css={styles.container}>
         <EuiTitle size="l">
           <h1>What would you like to do first?</h1>
@@ -80,7 +88,7 @@ const GettingStarted = () => {
               hasBorder
               textAlign="center"
               display="transparent"
-              onClick={() => router.push('#')}
+              onClick={handleGuideClick}
             />
           </EuiFlexItem>
         ))}

@@ -40,9 +40,8 @@ const KibanaLinks: EuiPinnableListGroupItemProps[] = [
   { label: 'Dashboard', href: `${pathPrefix}/kibana/dashboards` },
 ];
 
-const CollapsibleNav = () => {
+const CollapsibleNav = ({ onClick, guideOpen }) => {
   const [navIsOpen, setNavIsOpen] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
   const styles = kibanaLayoutStyles();
 
   const breadcrumbs = [
@@ -238,7 +237,11 @@ const CollapsibleNav = () => {
           },
           {
             items: [
-              <Guide key="guided-setup" />,
+              <Guide
+                key="guided-setup"
+                onClick={onClick}
+                guideOpen={guideOpen}
+              />,
               <EuiHeaderSectionItemButton
                 key={useGeneratedHtmlId()}
                 aria-label="Account menu">
@@ -270,8 +273,6 @@ const CollapsibleNav = () => {
           },
         ]}
       />
-
-      {!!isOpen && <Guide />}
     </>
   );
 };

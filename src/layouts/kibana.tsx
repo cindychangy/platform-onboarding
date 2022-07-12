@@ -3,16 +3,21 @@ import CollapsibleNav from './kibana_collapsible_nav';
 import { kibanaLayoutStyles } from './kibana.styles';
 import { EuiPageTemplate, EuiPageTemplateProps } from '@elastic/eui';
 
-type KibanaLayoutProps = EuiPageTemplateProps;
+type KibanaLayoutProps = EuiPageTemplateProps & {
+  guideOpen: boolean;
+  onClick: () => void;
+};
 
 const KibanaLayout: FunctionComponent<KibanaLayoutProps> = ({
+  onClick,
+  guideOpen,
   children,
   ...rest
 }) => {
   const styles = kibanaLayoutStyles();
   return (
     <div css={styles.mainWrapper}>
-      <CollapsibleNav />
+      <CollapsibleNav onClick={onClick} guideOpen={guideOpen} />
 
       <div css={styles.contentWrapper} className="fullBody">
         <EuiPageTemplate restrictWidth {...rest}>
