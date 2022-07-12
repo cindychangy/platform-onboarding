@@ -15,7 +15,7 @@ export const globalStyes = css`
     right: 65px;
     border-radius: 6px;
     width: 480px;
-    height: 1000px;
+    height: 1050px;
   }
 
   [aria-labelledby='guided-tour'] .euiAccordion__buttonContent {
@@ -36,4 +36,9 @@ export const globalStyes = css`
     justify-content: space-between;
     height: 100%;
   }
+
+  // [aria-labelledby='guided-tour'] .euiFlexGroup--responsive {
+  //   border-bottom: 1px solid #d3dae6;
+  //   padding-bottom: 25px;
+  // }
 `;

@@ -33,5 +33,8 @@ export const guideStyles = () => ({
     height: 24px;
     width: 24px;
     margin-right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   `,
 });
