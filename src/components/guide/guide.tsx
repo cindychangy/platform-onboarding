@@ -18,7 +18,7 @@ import { guideStyles } from './guide.styles';
 
 const Guide = () => {
   const styles = guideStyles();
-  const [isOpen, setIsOpen] = useState(false);
+  const [guideOpen, setGuide] = useState(false);
 
   const GUIDE_DATA = [
     {
@@ -54,16 +54,16 @@ const Guide = () => {
           color="success"
           size="s"
           iconType="sortDown"
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => setGuide(!guideOpen)}
           key="guided-tour"
           fill>
           Guided Setup
         </EuiButton>
       </div>
-      {!!isOpen && (
+      {!!guideOpen && (
         <EuiFlyout
           ownFocus
-          onClose={() => setIsOpen(!isOpen)}
+          onClose={() => setGuide(!guideOpen)}
           aria-labelledby="guided-tour">
           <EuiFlyoutHeader hasBorder>
             <EuiSpacer size="l" />
@@ -113,7 +113,7 @@ const Guide = () => {
               <div css={styles.panelFooter}>
                 <EuiFlexGroup>
                   <EuiFlexItem grow={false}>
-                    <EuiButtonEmpty onClick={() => setIsOpen(!isOpen)}>
+                    <EuiButtonEmpty onClick={() => setGuide(!guideOpen)}>
                       Close
                     </EuiButtonEmpty>
                   </EuiFlexItem>
