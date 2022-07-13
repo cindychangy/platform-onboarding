@@ -37,8 +37,11 @@ export const globalStyes = css`
     height: 100%;
   }
 
-  // [aria-labelledby='guided-tour'] .euiFlexGroup--responsive {
-  //   border-bottom: 1px solid #d3dae6;
-  //   padding-bottom: 25px;
-  // }
+  .euiOverlayMask {
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .euiPanel.euiPanel--isClickable:hover {
+    box-shadow: none;
+  }
 `;

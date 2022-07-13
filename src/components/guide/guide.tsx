@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import {
   EuiButton,
   EuiButtonEmpty,
@@ -23,6 +24,7 @@ type GuideProps = {
 
 const Guide = ({ guideOpen, onClick }: GuideProps) => {
   const styles = guideStyles();
+  const router = useRouter();
 
   const GUIDE_DATA = [
     {
@@ -118,6 +120,7 @@ const Guide = ({ guideOpen, onClick }: GuideProps) => {
                   </EuiFlexItem>
                   <EuiFlexItem grow={false}>
                     <EuiButton fill href="">
+                      {/* onClick={() => router.push('/8.6/guided-setup/step')} */}
                       Start Guide
                     </EuiButton>
                   </EuiFlexItem>
