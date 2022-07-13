@@ -38,7 +38,7 @@ export const globalStyes = css`
   }
 
   .euiOverlayMask {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.4);
   }
 
   .euiPanel.euiPanel--isClickable:hover {
