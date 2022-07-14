@@ -13,12 +13,10 @@ import {
   EuiListGroup,
   useGeneratedHtmlId,
   EuiAvatar,
-  EuiButton,
 } from '@elastic/eui';
 import find from 'lodash/find';
 import findIndex from 'lodash/findIndex';
 import { css } from '@emotion/react';
-import ThemeSwitcher from '../components/chrome/theme_switcher';
 import Guide from '../components/guide/guide';
 import { kibanaLayoutStyles } from './kibana.styles';
 
@@ -40,7 +38,7 @@ const KibanaLinks: EuiPinnableListGroupItemProps[] = [
   { label: 'Dashboard', href: `${pathPrefix}/kibana/dashboards` },
 ];
 
-const CollapsibleNav = ({ onClick, guideOpen }) => {
+const CollapsibleNav = ({ onClick, guideOpen, section }) => {
   const [navIsOpen, setNavIsOpen] = useState(false);
   const styles = kibanaLayoutStyles();
 
@@ -241,6 +239,7 @@ const CollapsibleNav = ({ onClick, guideOpen }) => {
                 key="guided-setup"
                 onClick={onClick}
                 guideOpen={guideOpen}
+                section={section}
               />,
               <EuiHeaderSectionItemButton
                 key={useGeneratedHtmlId()}

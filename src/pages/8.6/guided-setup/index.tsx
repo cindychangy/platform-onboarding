@@ -24,6 +24,7 @@ const CARDS = [
       'Create a search experience for your websites, applications, workplace content, or anything in between.',
     icon: 'logoElasticsearch',
     footer: <EuiBadge color="hollow">Search</EuiBadge>,
+    section: 'Search',
   },
   {
     title: 'Observe my infrastructure',
@@ -31,6 +32,7 @@ const CARDS = [
       'Monitor your infrastructure by consolidating your logs, metrics, and traces for end‑to‑end observability.',
     icon: 'logoObservability',
     footer: <EuiBadge color="hollow">Observability</EuiBadge>,
+    section: 'Observability',
   },
   {
     title: 'Protect my environment',
@@ -38,6 +40,7 @@ const CARDS = [
       'Protect your environment by unifying SIEM, endpoint security, and cloud security to protect against threats.',
     icon: 'logoSecurity',
     footer: <EuiBadge color="hollow">Security</EuiBadge>,
+    section: 'Security',
   },
 ];
 
@@ -45,9 +48,13 @@ const GettingStarted = () => {
   const { euiTheme } = useEuiTheme();
   const styles = gettingSetupStyles(euiTheme);
   const [guideOpen, setGuide] = useState(false);
+  const [section, setSection] = useState('Observability');
 
-  const handleGuideClick = () => {
+  const handleGuideClick = (section?: string) => {
     setGuide(!guideOpen);
+    if (section) {
+      setSection(section);
+    }
   };
 
   return (
@@ -55,7 +62,8 @@ const GettingStarted = () => {
       template="empty"
       style={{ background: '#fff' }}
       guideOpen={guideOpen}
-      onClick={handleGuideClick}>
+      section={section}
+      onClick={() => handleGuideClick(section)}>
       <div css={styles.container}>
         <EuiTitle size="l">
           <h1>What would you like to do first?</h1>
@@ -88,7 +96,7 @@ const GettingStarted = () => {
               hasBorder
               textAlign="center"
               display="transparent"
-              onClick={handleGuideClick}
+              onClick={() => handleGuideClick(card.section)}
             />
           </EuiFlexItem>
         ))}
