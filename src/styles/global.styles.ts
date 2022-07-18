@@ -18,6 +18,13 @@ export const globalStyes = css`
     height: 1050px;
   }
 
+  @media only screen and (max-width: 574px) {
+    [aria-labelledby='guided-tour'] {
+      right: 25px;
+      width: 100%;
+    }
+  }
+
   [aria-labelledby='guided-tour'] .euiAccordion__buttonContent {
     font-weight: 700;
     font-size: 16px;
@@ -35,6 +42,7 @@ export const globalStyes = css`
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    width: 480px;
   }
 
   .euiOverlayMask {
