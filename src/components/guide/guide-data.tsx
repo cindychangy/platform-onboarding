@@ -1,23 +1,12 @@
-type Data = {
-  title: string;
-  media: string | null;
-  intro: string;
-  link?: {
-    title: string;
-    url: string;
-  };
-  steps: {
-    title: string;
-    description: string;
-    completed: boolean;
-  }[];
-};
-
-export const GUIDE_SEARCH: Data = {
+export const GUIDE_SEARCH = {
   title: 'Search my Data',
   media: null,
   intro:
     'Create a search experience for your websites, applications, workplace content, or anything in between.',
+  link: {
+    title: null,
+    url: null,
+  },
   steps: [
     {
       title: 'Search guide step 1',
@@ -76,6 +65,10 @@ export const GUIDE_SECURITY = {
   media: null,
   intro:
     'The following steps will help you get started with security. We recommend going in order. ',
+  link: {
+    title: null,
+    url: null,
+  },
   steps: [
     {
       title: 'Secure your environment',
