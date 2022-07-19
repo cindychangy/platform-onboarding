@@ -8,6 +8,7 @@ import {
   EuiFlyout,
   EuiFlyoutBody,
   EuiFlyoutHeader,
+  EuiFlyoutFooter,
   EuiFlexGroup,
   EuiFlexItem,
   // EuiProgress,
@@ -71,7 +72,7 @@ const Guide = ({ guideOpen, section, onClick }: GuideProps) => {
             </EuiFlyoutHeader>
 
             <EuiFlyoutBody>
-              <div>
+              <>
                 {data.media && (
                   <>
                     <div dangerouslySetInnerHTML={{ __html: data.media }} />
@@ -91,24 +92,21 @@ const Guide = ({ guideOpen, section, onClick }: GuideProps) => {
                     completed={step.completed}
                   />
                 ))}
-              </div>
-
-              <div css={styles.panelFooter}>
-                <div css={styles.panelFooter}>
-                  <EuiFlexGroup>
-                    <EuiFlexItem grow={false}>
-                      <EuiButtonEmpty onClick={onClick}>Close</EuiButtonEmpty>
-                    </EuiFlexItem>
-                    <EuiFlexItem grow={false}>
-                      <EuiButton fill href="">
-                        {/* onClick={() => router.push('/8.6/guided-setup/step')} */}
-                        Start Guide
-                      </EuiButton>
-                    </EuiFlexItem>
-                  </EuiFlexGroup>
-                </div>
-              </div>
+              </>
             </EuiFlyoutBody>
+            <EuiFlyoutFooter>
+              <EuiFlexGroup justifyContent="spaceBetween">
+                <EuiFlexItem grow={false}>
+                  <EuiButtonEmpty onClick={onClick}>Close</EuiButtonEmpty>
+                </EuiFlexItem>
+                <EuiFlexItem grow={false}>
+                  <EuiButton fill href="">
+                    {/* onClick={() => router.push('/8.6/guided-setup/step')} */}
+                    Start Guide
+                  </EuiButton>
+                </EuiFlexItem>
+              </EuiFlexGroup>
+            </EuiFlyoutFooter>
           </>
         </EuiFlyout>
       )}

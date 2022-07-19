@@ -12,10 +12,16 @@ export const globalStyes = css`
   //guided tour flyout
   [aria-labelledby='guided-tour'] {
     top: 55px;
+    bottom: 25px;
     right: 65px;
     border-radius: 6px;
     width: 480px;
-    height: 1050px;
+    height: auto;
+  }
+
+  [aria-labelledby='guided-tour'] .euiFlyoutFooter {
+    border-radius: 0 0 6px 6px;
+    background: #fff;
   }
 
   @media only screen and (max-width: 574px) {
@@ -37,19 +43,27 @@ export const globalStyes = css`
     margin-left: -24px;
   }
 
-  [aria-labelledby='guided-tour'] .euiFlyoutBody__overflowContent {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    width: 480px;
+  @media only screen and (max-width: 574px) {
+    [aria-labelledby='guided-tour'] .euiFlyoutBody__overflowContent {
+      width: 100%;
+    }
   }
 
   .euiOverlayMask {
     background: rgba(0, 0, 0, 0.4);
   }
 
-  .euiPanel.euiPanel--isClickable:hover {
-    box-shadow: none;
+  // .euiPanel.euiPanel--isClickable:hover {
+  //   box-shadow: none;
+  // }
+
+  .euiAccordion__triggerWrapper {
+    width: 390px;
+  }
+
+  @media only screen and (max-width: 574px) {
+    .euiAccordion__triggerWrapper {
+      width: 100%;
+    }
   }
 `;

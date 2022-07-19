@@ -23,7 +23,7 @@ const GuideSection = ({ title, description, completed }: GuideSectionProps) => {
 
   return (
     <>
-      <EuiFlexGroup gutterSize="none">
+      <EuiFlexGroup gutterSize="none" responsive={false}>
         <EuiFlexItem grow={false}>
           <div css={completed ? styles.checkFill : styles.checkEmpty}>
             {completed ? <EuiIcon type="check" size="m" color="white" /> : null}

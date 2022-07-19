@@ -2,6 +2,10 @@ type Data = {
   title: string;
   media: string | null;
   intro: string;
+  link?: {
+    title: string;
+    url: string;
+  };
   steps: {
     title: string;
     description: string;
@@ -33,12 +37,16 @@ export const GUIDE_SEARCH: Data = {
 export const GUIDE_OBSERVABILITY = {
   title: 'Observe my infrastructure',
   media:
-    '<img src="../images/guided-setup-video.png" alt="video setup" width="100%" height="257">',
+    '<img src="../images/guided-setup-video.png" alt="video setup" width="100%" height="auto">',
   intro:
-    'This guide will help you quickly gain visibility into your environment and let you take action by collecting your logs, metrics, and traces using popular integrations. We recommend going in order.',
+    "We'll help you quickly gain visibility into your environment using Elastic's out-of-the-box integrations. Gain deep insights from your logs, metrics, and traces, and proactively stay detect issues and take action to resolve issues.",
+  link: {
+    title: 'Observability 101 Documentation',
+    url: '#',
+  },
   steps: [
     {
-      title: 'Monitor your environment',
+      title: 'Add data',
       description:
         'Adding data is fast and easy with our out-of-the-box integrations. Quickly monitor popular cloud services, applications, systems, containers, and more.',
       completed: false,
@@ -50,9 +58,8 @@ export const GUIDE_OBSERVABILITY = {
       completed: true,
     },
     {
-      title: 'Explore your data',
-      description:
-        'Query and analyze your data using the Discover app. Find any detail in your data, no matter how obscure or complex.',
+      title: 'Create an alert',
+      description: 'Get notified and monitor what is most important to you.',
       completed: false,
     },
     {
