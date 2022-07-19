@@ -33,7 +33,15 @@ const GuideSection = ({ title, description, completed }: GuideSectionProps) => {
           <EuiAccordion
             id="step1"
             arrowDisplay="right"
-            buttonContent={title}
+            buttonContent={
+              completed ? (
+                <>
+                  {title} <p css={styles.successText}>Well done!</p>
+                </>
+              ) : (
+                title
+              )
+            }
             paddingSize="none">
             <EuiPanel paddingSize="none">
               <EuiSpacer size="s" />

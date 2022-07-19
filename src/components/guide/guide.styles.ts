@@ -37,4 +37,12 @@ export const guideStyles = () => ({
     align-items: center;
     justify-content: center;
   `,
+
+  successText: css`
+    font-weight: 400;
+    margin-left: 8px;
+    font-size: 14px;
+    font-style: italic;
+    display: inline-block;
+  `,
 });

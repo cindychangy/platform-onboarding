@@ -11,7 +11,7 @@ import {
   EuiFlyoutFooter,
   EuiFlexGroup,
   EuiFlexItem,
-  // EuiProgress,
+  EuiProgress,
 } from '@elastic/eui';
 import GuideSection from './guide-section';
 import { guideStyles } from './guide.styles';
@@ -79,7 +79,19 @@ const Guide = ({ guideOpen, section, onClick }: GuideProps) => {
                     <EuiSpacer size="m" />
                   </>
                 )}
-                {/* <EuiProgress value={90} max={100} size="l" label="Progress" /> */}
+                <EuiSpacer size="s" />
+                {data.progress && (
+                  <>
+                    <EuiProgress
+                      valueText={`${data.progress}%`}
+                      value={data.progress}
+                      max={100}
+                      size="l"
+                      label="Progress"
+                    />
+                    <EuiSpacer size="xl" />
+                  </>
+                )}
                 <EuiText size="m">
                   <p>{data.intro}</p>
                 </EuiText>
@@ -95,7 +107,16 @@ const Guide = ({ guideOpen, section, onClick }: GuideProps) => {
               </>
             </EuiFlyoutBody>
             <EuiFlyoutFooter>
-              <EuiFlexGroup justifyContent="spaceBetween">
+              <EuiSpacer size="m" />
+              <EuiText color="subdued" textAlign="center">
+                Got questions? We’re here to help -{' '}
+                <a href="#" style={{ fontWeight: '400' }}>
+                  contact us
+                </a>
+                .
+              </EuiText>
+              <EuiSpacer size="xl" />
+              <EuiFlexGroup justifyContent="flexEnd">
                 <EuiFlexItem grow={false}>
                   <EuiButtonEmpty onClick={onClick}>Close</EuiButtonEmpty>
                 </EuiFlexItem>

@@ -7,6 +7,7 @@ export const GUIDE_SEARCH = {
     title: null,
     url: null,
   },
+  progress: '50',
   steps: [
     {
       title: 'Search guide step 1',
@@ -25,14 +26,14 @@ export const GUIDE_SEARCH = {
 
 export const GUIDE_OBSERVABILITY = {
   title: 'Observe my infrastructure',
-  media:
-    '<img src="../images/guided-setup-video.png" alt="video setup" width="100%" height="auto">',
+  media: null,
   intro:
     "We'll help you quickly gain visibility into your environment using Elastic's out-of-the-box integrations. Gain deep insights from your logs, metrics, and traces, and proactively stay detect issues and take action to resolve issues.",
   link: {
     title: 'Observability 101 Documentation',
     url: '#',
   },
+  progress: '25',
   steps: [
     {
       title: 'Add data',
@@ -62,13 +63,15 @@ export const GUIDE_OBSERVABILITY = {
 
 export const GUIDE_SECURITY = {
   title: 'Protect my environment',
-  media: null,
+  media:
+    '<img src="../images/guided-setup-video.png" alt="video setup" width="100%" height="auto">',
   intro:
     'The following steps will help you get started with security. We recommend going in order. ',
   link: {
     title: null,
     url: null,
   },
+  progress: null,
   steps: [
     {
       title: 'Secure your environment',

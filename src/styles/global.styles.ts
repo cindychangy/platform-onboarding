@@ -19,16 +19,26 @@ export const globalStyes = css`
     height: auto;
   }
 
-  [aria-labelledby='guided-tour'] .euiFlyoutFooter {
-    border-radius: 0 0 6px 6px;
-    background: #fff;
-  }
-
   @media only screen and (max-width: 574px) {
     [aria-labelledby='guided-tour'] {
       right: 25px;
       width: 100%;
     }
+  }
+
+  [aria-labelledby='guided-tour'] {
+    .euiProgress__valueText,
+    .euiProgress__label {
+      color: #69707d;
+      font-size: 12px;
+    }
+  }
+
+  //flyout footer
+  [aria-labelledby='guided-tour'] .euiFlyoutFooter {
+    border-radius: 0 0 6px 6px;
+    background: #fff;
+    padding: 24px 30px;
   }
 
   [aria-labelledby='guided-tour'] .euiAccordion__buttonContent {
@@ -41,6 +51,10 @@ export const globalStyes = css`
     .euiAccordion.euiAccordion-isOpen
     .euiAccordion__childWrapper {
     margin-left: -24px;
+  }
+
+  [aria-labelledby='guided-tour'] .euiFlyoutBody__overflowContent {
+    width: 480px;
   }
 
   @media only screen and (max-width: 574px) {
