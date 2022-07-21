@@ -3,10 +3,7 @@ export const GUIDE_SEARCH = {
   media: null,
   intro:
     'Create a search experience for your websites, applications, workplace content, or anything in between.',
-  link: {
-    title: null,
-    url: null,
-  },
+  link: null,
   progress: '50',
   steps: [
     {
@@ -67,10 +64,7 @@ export const GUIDE_SECURITY = {
     '<img src="../images/guided-setup-video.png" alt="video setup" width="100%" height="auto">',
   intro:
     'The following steps will help you get started with security. We recommend going in order. ',
-  link: {
-    title: null,
-    url: null,
-  },
+  link: null,
   progress: null,
   steps: [
     {

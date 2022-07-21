@@ -35,6 +35,14 @@ export const globalStyes = css`
     }
   }
 
+  [aria-label='guided-tour-step'] {
+    border-bottom: 1px solid #d3dae6;
+    padding: 24px 0;
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
   //flyout footer
   [aria-labelledby='guided-tour'] .euiFlyoutFooter {
     border-radius: 0 0 6px 6px;

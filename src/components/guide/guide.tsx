@@ -82,9 +82,12 @@ const Guide = ({ guideOpen, section, onClick }: GuideProps) => {
                     <EuiSpacer size="m" />
                   </>
                 )}
-                <EuiSpacer size="s" />
+                <EuiText size="m">
+                  <p>{data.intro}</p>
+                </EuiText>
                 {data.progress && (
                   <>
+                    <EuiSpacer size="l" />
                     <EuiProgress
                       valueText={`${data.progress}%`}
                       value={data.progress}
@@ -92,20 +95,21 @@ const Guide = ({ guideOpen, section, onClick }: GuideProps) => {
                       size="l"
                       label="Progress"
                     />
-                    <EuiSpacer size="xl" />
                   </>
                 )}
-                <EuiText size="m">
-                  <p>{data.intro}</p>
-                </EuiText>
-                {/* <EuiSpacer size="m" /> */}
                 {data.link && (
-                  <EuiButtonIcon iconType="popout" href={data.link.url}>
-                    {data.link.title}
-                  </EuiButtonIcon>
+                  <>
+                    <EuiSpacer size="l" />
+                    <EuiButtonEmpty
+                      iconType="popout"
+                      iconSide="right"
+                      href={data.link.url}
+                      style={{ marginLeft: '-8px' }}>
+                      {data.link.title}
+                    </EuiButtonEmpty>
+                  </>
                 )}
-                {/* <EuiSpacer size="m" /> */}
-                <EuiSpacer size="xxl" />
+                <EuiSpacer size="m" />
                 {data.steps.map(step => (
                   <GuideSection
                     key={step.title}
@@ -117,8 +121,8 @@ const Guide = ({ guideOpen, section, onClick }: GuideProps) => {
               </>
             </EuiFlyoutBody>
             <EuiFlyoutFooter>
-              {/* <EuiHorizontalRule /> */}
-              <EuiSpacer size="m" />
+              <EuiHorizontalRule />
+              <EuiSpacer size="s" />
               <EuiText color="subdued" textAlign="center">
                 Got questions? We’re here to help -{' '}
                 <a href="#" style={{ fontWeight: '400' }}>
@@ -126,18 +130,7 @@ const Guide = ({ guideOpen, section, onClick }: GuideProps) => {
                 </a>
                 .
               </EuiText>
-              <EuiSpacer size="xl" />
-              <EuiFlexGroup justifyContent="flexEnd">
-                <EuiFlexItem grow={false}>
-                  <EuiButtonEmpty onClick={onClick}>Close</EuiButtonEmpty>
-                </EuiFlexItem>
-                <EuiFlexItem grow={false}>
-                  <EuiButton fill href="">
-                    {/* onClick={() => router.push('/8.6/guided-setup/step')} */}
-                    Start Guide
-                  </EuiButton>
-                </EuiFlexItem>
-              </EuiFlexGroup>
+              <EuiSpacer size="m" />
             </EuiFlyoutFooter>
           </>
         </EuiFlyout>

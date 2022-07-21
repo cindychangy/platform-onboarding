@@ -7,8 +7,6 @@ import {
   EuiFlexItem,
   EuiPanel,
   EuiIcon,
-  EuiHorizontalRule,
-  // EuiProgress,
 } from '@elastic/eui';
 import { guideStyles } from './guide.styles';
 
@@ -23,7 +21,10 @@ const GuideSection = ({ title, description, completed }: GuideSectionProps) => {
 
   return (
     <>
-      <EuiFlexGroup gutterSize="none" responsive={false}>
+      <EuiFlexGroup
+        gutterSize="none"
+        responsive={false}
+        aria-label="guided-tour-step">
         <EuiFlexItem grow={false}>
           <div css={completed && styles.checkFill}>
             {completed ? <EuiIcon type="check" size="m" color="white" /> : null}
@@ -50,9 +51,6 @@ const GuideSection = ({ title, description, completed }: GuideSectionProps) => {
           </EuiAccordion>
         </EuiFlexItem>
       </EuiFlexGroup>
-      <EuiSpacer size="l" />
-      <EuiHorizontalRule margin="none" />
-      <EuiSpacer size="l" />
     </>
   );
 };
