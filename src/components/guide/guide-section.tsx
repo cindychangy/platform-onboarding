@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   EuiButton,
   EuiText,
@@ -14,10 +15,16 @@ import { guideStyles } from './guide.styles';
 type GuideSectionProps = {
   title: string;
   description: string;
-  completed: boolean;
+  stepCompleted: boolean;
+  index: number;
 };
 
-const GuideSection = ({ title, description, completed }: GuideSectionProps) => {
+const GuideSection = ({
+  title,
+  description,
+  stepCompleted,
+  index,
+}: GuideSectionProps) => {
   const styles = guideStyles();
   const router = useRouter();
 
@@ -26,10 +33,12 @@ const GuideSection = ({ title, description, completed }: GuideSectionProps) => {
       <EuiFlexGroup
         gutterSize="none"
         responsive={false}
-        aria-label="guided-tour-step">
+        aria-label={`step-${index}`}>
         <EuiFlexItem grow={false}>
-          <div css={completed && styles.checkFill}>
-            {completed ? <EuiIcon type="check" size="m" color="white" /> : null}
+          <div css={stepCompleted && styles.checkFill}>
+            {stepCompleted ? (
+              <EuiIcon type="check" size="m" color="white" />
+            ) : null}
           </div>
         </EuiFlexItem>
         <EuiFlexItem grow={1}>
@@ -38,7 +47,9 @@ const GuideSection = ({ title, description, completed }: GuideSectionProps) => {
             arrowDisplay="right"
             buttonContent={title}
             paddingSize="none">
-            <EuiPanel paddingSize="none">
+            <EuiPanel
+              paddingSize="none"
+              css={stepCompleted && index === 0 ? styles.confetti : null}>
               <EuiSpacer size="s" />
               <EuiText size="s">{description}</EuiText>
               <EuiSpacer size="m" />

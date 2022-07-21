@@ -25,9 +25,16 @@ type GuideProps = {
   onClick: () => void;
   section?: string;
   buttonDisabled: boolean;
+  stepCompleted: boolean;
 };
 
-const Guide = ({ guideOpen, section, buttonDisabled, onClick }: GuideProps) => {
+const Guide = ({
+  guideOpen,
+  section,
+  buttonDisabled,
+  stepCompleted,
+  onClick,
+}: GuideProps) => {
   const styles = guideStyles();
   let data = GUIDE_OBSERVABILITY;
 
@@ -108,12 +115,13 @@ const Guide = ({ guideOpen, section, buttonDisabled, onClick }: GuideProps) => {
                   </>
                 )}
                 <EuiSpacer size="m" />
-                {data.steps.map(step => (
+                {data.steps.map((step, index) => (
                   <GuideSection
                     key={step.title}
                     title={step.title}
                     description={step.description}
-                    completed={step.completed}
+                    stepCompleted={stepCompleted}
+                    index={index}
                   />
                 ))}
               </>

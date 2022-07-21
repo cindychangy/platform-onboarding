@@ -1,25 +1,27 @@
 import { useState } from 'react';
 import {
   EuiTitle,
-  // useEuiTheme,
   EuiLoadingContent,
   EuiSpacer,
   EuiButton,
 } from '@elastic/eui';
 import KibanaLayout from '../../../layouts/kibana';
-// import { gettingSetupStyles } from '../../../styles/guided-setup.styles';
 
 type GuideStepProps = {
   buttonDisabled: boolean;
 };
 
 const GuideStep = ({ buttonDisabled }: GuideStepProps) => {
-  // const { euiTheme } = useEuiTheme();
-  // const styles = gettingSetupStyles(euiTheme);
   const [guideOpen, setGuide] = useState(false);
+  const [stepCompleted, setStepCompleted] = useState(false);
 
   const handleGuideClick = () => {
     setGuide(!guideOpen);
+  };
+
+  const handleCompleteStep = () => {
+    setGuide(true);
+    setStepCompleted(true);
   };
 
   return (
@@ -28,15 +30,16 @@ const GuideStep = ({ buttonDisabled }: GuideStepProps) => {
       style={{ background: '#fff' }}
       guideOpen={guideOpen}
       buttonDisabled={buttonDisabled}
+      stepCompleted={stepCompleted}
       onClick={handleGuideClick}>
       <div>
         <EuiTitle size="l">
-          <h1>A Guided Setup Step</h1>
+          <h1>Add Data</h1>
         </EuiTitle>
         <EuiSpacer size="xxl" />
         <EuiLoadingContent lines={10} />
         <EuiSpacer size="xxl" />
-        <EuiButton onClick={() => console.log('hi')} fill>
+        <EuiButton onClick={handleCompleteStep} fill>
           Complete this step
         </EuiButton>
       </div>

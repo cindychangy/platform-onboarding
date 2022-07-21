@@ -8,6 +8,7 @@ type KibanaLayoutProps = EuiPageTemplateProps & {
   onClick: (section?: string) => void;
   section?: string;
   buttonDisabled: boolean;
+  stepCompleted?: boolean;
 };
 
 const KibanaLayout: FunctionComponent<KibanaLayoutProps> = ({
@@ -15,6 +16,7 @@ const KibanaLayout: FunctionComponent<KibanaLayoutProps> = ({
   guideOpen,
   section,
   buttonDisabled,
+  stepCompleted,
   children,
   ...rest
 }) => {
@@ -26,6 +28,7 @@ const KibanaLayout: FunctionComponent<KibanaLayoutProps> = ({
         guideOpen={guideOpen}
         section={section}
         buttonDisabled={buttonDisabled}
+        stepCompleted={stepCompleted}
       />
 
       <div css={styles.contentWrapper} className="fullBody">

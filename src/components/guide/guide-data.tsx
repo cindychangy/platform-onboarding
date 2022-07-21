@@ -4,7 +4,7 @@ export const GUIDE_SEARCH = {
   intro:
     'Create a search experience for your websites, applications, workplace content, or anything in between.',
   link: null,
-  progress: '50',
+  progress: null,
   steps: [
     {
       title: 'Search guide step 1',
@@ -16,7 +16,7 @@ export const GUIDE_SEARCH = {
       title: 'Search guide step 2',
       description:
         'See how you can easily unlock the power of the Elastic search platform to query your logs, view your infrastructure, monitor applications, visualize your data, and more.',
-      completed: true,
+      completed: false,
     },
   ],
 };
@@ -31,7 +31,7 @@ export const GUIDE_OBSERVABILITY = {
     title: 'Observability 101 Documentation',
     url: '#',
   },
-  progress: '25',
+  progress: null,
   steps: [
     {
       title: 'Add data',
@@ -43,7 +43,7 @@ export const GUIDE_OBSERVABILITY = {
       title: 'Tour Elastic Observability',
       description:
         'See how you can easily unlock the power of the Elastic search platform to query your logs, view your infrastructure, monitor applications, visualize your data, and more.',
-      completed: true,
+      completed: false,
     },
     {
       title: 'Create an alert',
