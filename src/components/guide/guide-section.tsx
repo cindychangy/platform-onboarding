@@ -35,7 +35,7 @@ const GuideSection = ({
         responsive={false}
         aria-label={`step-${index}`}>
         <EuiFlexItem grow={false}>
-          <div css={stepCompleted && styles.checkFill}>
+          <div css={stepCompleted && index === 0 && styles.checkFill}>
             {stepCompleted ? (
               <EuiIcon type="check" size="m" color="white" />
             ) : null}
@@ -46,7 +46,8 @@ const GuideSection = ({
             id="step1"
             arrowDisplay="right"
             buttonContent={title}
-            paddingSize="none">
+            paddingSize="none"
+            initialIsOpen={stepCompleted && index === 0 ? true : false}>
             <EuiPanel
               paddingSize="none"
               css={stepCompleted && index === 0 ? styles.confetti : null}>
@@ -55,11 +56,13 @@ const GuideSection = ({
               <EuiSpacer size="m" />
               <EuiFlexGroup justifyContent="flexEnd">
                 <EuiFlexItem grow={false}>
-                  <EuiButton
-                    fill
-                    onClick={() => router.push('guided-setup/guide-step')}>
-                    Start
-                  </EuiButton>
+                  {stepCompleted && index === 0 ? null : (
+                    <EuiButton
+                      fill
+                      onClick={() => router.push('guided-setup/step-page')}>
+                      Start
+                    </EuiButton>
+                  )}
                 </EuiFlexItem>
               </EuiFlexGroup>
             </EuiPanel>
