@@ -17,6 +17,7 @@ export const globalStyes = css`
     border-radius: 6px;
     width: 480px;
     height: auto;
+    animation: euiModal 350ms cubic-bezier(0.34, 1.61, 0.7, 1);
   }
 
   @media only screen and (max-width: 574px) {
