@@ -38,7 +38,7 @@ const KibanaLinks: EuiPinnableListGroupItemProps[] = [
   { label: 'Dashboard', href: `${pathPrefix}/kibana/dashboards` },
 ];
 
-const CollapsibleNav = ({ onClick, guideOpen, section }) => {
+const CollapsibleNav = ({ onClick, guideOpen, buttonDisabled, section }) => {
   const [navIsOpen, setNavIsOpen] = useState(false);
   const styles = kibanaLayoutStyles();
 
@@ -239,6 +239,7 @@ const CollapsibleNav = ({ onClick, guideOpen, section }) => {
                 key="guided-setup"
                 onClick={onClick}
                 guideOpen={guideOpen}
+                buttonDisabled={buttonDisabled}
                 section={section}
               />,
               <EuiHeaderSectionItemButton

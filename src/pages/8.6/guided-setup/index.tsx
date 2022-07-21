@@ -49,9 +49,11 @@ const GettingStarted = () => {
   const styles = gettingSetupStyles(euiTheme);
   const [guideOpen, setGuide] = useState(false);
   const [section, setSection] = useState('Observability');
+  const [buttonDisabled, setButtonDisabled] = useState(true);
 
   const handleGuideClick = (section?: string) => {
     setGuide(!guideOpen);
+    setButtonDisabled(!buttonDisabled);
     if (section) {
       setSection(section);
     }
@@ -63,6 +65,7 @@ const GettingStarted = () => {
       style={{ background: '#fff' }}
       guideOpen={guideOpen}
       section={section}
+      buttonDisabled={buttonDisabled}
       onClick={() => handleGuideClick(section)}>
       <div css={styles.container}>
         <EuiTitle size="l">

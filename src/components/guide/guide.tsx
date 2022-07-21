@@ -24,9 +24,10 @@ type GuideProps = {
   guideOpen: boolean;
   onClick: () => void;
   section?: string;
+  buttonDisabled: boolean;
 };
 
-const Guide = ({ guideOpen, section, onClick }: GuideProps) => {
+const Guide = ({ guideOpen, section, buttonDisabled, onClick }: GuideProps) => {
   const styles = guideStyles();
   let data = GUIDE_OBSERVABILITY;
 
@@ -51,7 +52,7 @@ const Guide = ({ guideOpen, section, onClick }: GuideProps) => {
           iconType="sortDown"
           onClick={onClick}
           key="guided-tour"
-          disabled={!guideOpen}
+          disabled={buttonDisabled}
           fill>
           Guided Setup
         </EuiButton>

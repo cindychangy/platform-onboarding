@@ -8,6 +8,7 @@ import {
   EuiPanel,
   EuiIcon,
 } from '@elastic/eui';
+import { useRouter } from 'next/router';
 import { guideStyles } from './guide.styles';
 
 type GuideSectionProps = {
@@ -18,6 +19,7 @@ type GuideSectionProps = {
 
 const GuideSection = ({ title, description, completed }: GuideSectionProps) => {
   const styles = guideStyles();
+  const router = useRouter();
 
   return (
     <>
@@ -42,7 +44,9 @@ const GuideSection = ({ title, description, completed }: GuideSectionProps) => {
               <EuiSpacer size="m" />
               <EuiFlexGroup justifyContent="flexEnd">
                 <EuiFlexItem grow={false}>
-                  <EuiButton fill href="">
+                  <EuiButton
+                    fill
+                    onClick={() => router.push('guided-setup/guide-step')}>
                     Start
                   </EuiButton>
                 </EuiFlexItem>
