@@ -1,21 +1,21 @@
 import { useState } from 'react';
 import {
   EuiTitle,
-  useEuiTheme,
+  // useEuiTheme,
   EuiLoadingContent,
   EuiSpacer,
   EuiButton,
 } from '@elastic/eui';
 import KibanaLayout from '../../../layouts/kibana';
-import { gettingSetupStyles } from '../../../styles/guided-setup.styles';
+// import { gettingSetupStyles } from '../../../styles/guided-setup.styles';
 
 type GuideStepProps = {
   buttonDisabled: boolean;
 };
 
 const GuideStep = ({ buttonDisabled }: GuideStepProps) => {
-  const { euiTheme } = useEuiTheme();
-  const styles = gettingSetupStyles(euiTheme);
+  // const { euiTheme } = useEuiTheme();
+  // const styles = gettingSetupStyles(euiTheme);
   const [guideOpen, setGuide] = useState(false);
 
   const handleGuideClick = () => {
@@ -36,7 +36,7 @@ const GuideStep = ({ buttonDisabled }: GuideStepProps) => {
         <EuiSpacer size="xxl" />
         <EuiLoadingContent lines={10} />
         <EuiSpacer size="xxl" />
-        <EuiButton onClick={() => {}} fill>
+        <EuiButton onClick={() => console.log('hi')} fill>
           Complete this step
         </EuiButton>
       </div>
