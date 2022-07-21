@@ -47,12 +47,6 @@ export const globalStyes = css`
     line-height: 24px;
   }
 
-  [aria-labelledby='guided-tour']
-    .euiAccordion.euiAccordion-isOpen
-    .euiAccordion__childWrapper {
-    margin-left: -24px;
-  }
-
   [aria-labelledby='guided-tour'] .euiFlyoutBody__overflowContent {
     width: 480px;
   }
@@ -65,14 +59,6 @@ export const globalStyes = css`
 
   .euiOverlayMask {
     background: rgba(0, 0, 0, 0.4);
-  }
-
-  // .euiPanel.euiPanel--isClickable:hover {
-  //   box-shadow: none;
-  // }
-
-  .euiAccordion__triggerWrapper {
-    width: 390px;
   }
 
   @media only screen and (max-width: 574px) {

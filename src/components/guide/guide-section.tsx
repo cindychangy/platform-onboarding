@@ -25,23 +25,15 @@ const GuideSection = ({ title, description, completed }: GuideSectionProps) => {
     <>
       <EuiFlexGroup gutterSize="none" responsive={false}>
         <EuiFlexItem grow={false}>
-          <div css={completed ? styles.checkFill : styles.checkEmpty}>
+          <div css={completed && styles.checkFill}>
             {completed ? <EuiIcon type="check" size="m" color="white" /> : null}
           </div>
         </EuiFlexItem>
-        <EuiFlexItem grow={false}>
+        <EuiFlexItem grow={1}>
           <EuiAccordion
             id="step1"
             arrowDisplay="right"
-            buttonContent={
-              completed ? (
-                <>
-                  {title} <p css={styles.successText}>Well done!</p>
-                </>
-              ) : (
-                title
-              )
-            }
+            buttonContent={title}
             paddingSize="none">
             <EuiPanel paddingSize="none">
               <EuiSpacer size="s" />
@@ -50,7 +42,7 @@ const GuideSection = ({ title, description, completed }: GuideSectionProps) => {
               <EuiFlexGroup justifyContent="flexEnd">
                 <EuiFlexItem grow={false}>
                   <EuiButton fill href="">
-                    Continue
+                    Start
                   </EuiButton>
                 </EuiFlexItem>
               </EuiFlexGroup>

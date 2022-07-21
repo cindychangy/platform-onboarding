@@ -12,6 +12,8 @@ import {
   EuiFlexGroup,
   EuiFlexItem,
   EuiProgress,
+  EuiButtonIcon,
+  EuiHorizontalRule,
 } from '@elastic/eui';
 import GuideSection from './guide-section';
 import { guideStyles } from './guide.styles';
@@ -52,6 +54,7 @@ const Guide = ({ guideOpen, section, onClick }: GuideProps) => {
           iconType="sortDown"
           onClick={onClick}
           key="guided-tour"
+          disabled={!guideOpen}
           fill>
           Guided Setup
         </EuiButton>
@@ -95,6 +98,13 @@ const Guide = ({ guideOpen, section, onClick }: GuideProps) => {
                 <EuiText size="m">
                   <p>{data.intro}</p>
                 </EuiText>
+                {/* <EuiSpacer size="m" /> */}
+                {data.link && (
+                  <EuiButtonIcon iconType="popout" href={data.link.url}>
+                    {data.link.title}
+                  </EuiButtonIcon>
+                )}
+                {/* <EuiSpacer size="m" /> */}
                 <EuiSpacer size="xxl" />
                 {data.steps.map(step => (
                   <GuideSection
@@ -107,6 +117,7 @@ const Guide = ({ guideOpen, section, onClick }: GuideProps) => {
               </>
             </EuiFlyoutBody>
             <EuiFlyoutFooter>
+              {/* <EuiHorizontalRule /> */}
               <EuiSpacer size="m" />
               <EuiText color="subdued" textAlign="center">
                 Got questions? We’re here to help -{' '}

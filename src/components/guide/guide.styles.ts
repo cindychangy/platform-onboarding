@@ -18,14 +18,6 @@ export const guideStyles = () => ({
     align-self: flex-end;
   `,
 
-  checkEmpty: css`
-    border: 2px solid #00bfb3;
-    border-radius: 50%;
-    height: 24px;
-    width: 24px;
-    margin-right: 8px;
-  `,
-
   checkFill: css`
     border: 2px solid #00bfb3;
     background: #00bfb3;
@@ -36,13 +28,5 @@ export const guideStyles = () => ({
     display: flex;
     align-items: center;
     justify-content: center;
-  `,
-
-  successText: css`
-    font-weight: 400;
-    margin-left: 8px;
-    font-size: 14px;
-    font-style: italic;
-    display: inline-block;
   `,
 });
