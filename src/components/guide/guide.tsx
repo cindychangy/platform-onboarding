@@ -9,10 +9,7 @@ import {
   EuiFlyoutBody,
   EuiFlyoutHeader,
   EuiFlyoutFooter,
-  EuiFlexGroup,
-  EuiFlexItem,
   EuiProgress,
-  EuiButtonIcon,
   EuiHorizontalRule,
 } from '@elastic/eui';
 import GuideSection from './guide-section';
@@ -85,6 +82,18 @@ const Guide = ({ guideOpen, section, onClick }: GuideProps) => {
                 <EuiText size="m">
                   <p>{data.intro}</p>
                 </EuiText>
+                {data.link && (
+                  <>
+                    <EuiSpacer size="s" />
+                    <EuiButtonEmpty
+                      iconType="popout"
+                      iconSide="right"
+                      href={data.link.url}
+                      style={{ marginLeft: '-8px' }}>
+                      {data.link.title}
+                    </EuiButtonEmpty>
+                  </>
+                )}
                 {data.progress && (
                   <>
                     <EuiSpacer size="l" />
@@ -95,18 +104,6 @@ const Guide = ({ guideOpen, section, onClick }: GuideProps) => {
                       size="l"
                       label="Progress"
                     />
-                  </>
-                )}
-                {data.link && (
-                  <>
-                    <EuiSpacer size="l" />
-                    <EuiButtonEmpty
-                      iconType="popout"
-                      iconSide="right"
-                      href={data.link.url}
-                      style={{ marginLeft: '-8px' }}>
-                      {data.link.title}
-                    </EuiButtonEmpty>
                   </>
                 )}
                 <EuiSpacer size="m" />
