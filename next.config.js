@@ -116,7 +116,7 @@ const nextConfig = {
  */
 module.exports = withBundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
-  pageExtensions: ['mstylesdx', 'js', 'tsx', 'ts'],
+  pageExtensions: ['styles.ts', 'js', 'tsx', 'ts'],
 })(nextConfig);
 
 /**
