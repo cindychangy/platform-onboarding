@@ -2,10 +2,9 @@ import { css } from '@emotion/react';
 
 export const gettingSetupStyles = euiTheme => ({
   container: css`
-    text-align: center;
-    margin-top: 100px;
+    padding: 30px 40px 15px 40px;
+    max-width: 1150px;
   `,
-
   icon: css`
     background: ${euiTheme.colors.lightestShade};
     width: 40px;

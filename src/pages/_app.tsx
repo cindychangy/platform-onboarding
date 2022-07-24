@@ -3,32 +3,35 @@ import { AppProps } from 'next/app';
 import { Global } from '@emotion/react';
 import Head from 'next/head';
 import { EuiErrorBoundary } from '@elastic/eui';
-import Chrome from '../components/chrome';
-import { Theme } from '../components/theme/theme';
 import { globalStyes } from '../styles/global.styles';
 
-/**
- * Next.js uses the App component to initialize pages. You can override it
- * and control the page initialization. Here use use it to render the
- * `Chrome` component on each page, and apply an error boundary.
- *
- * @see https://nextjs.org/docs/advanced-features/custom-app
- */
-const EuiApp: FunctionComponent<AppProps> = ({ Component, pageProps }) => (
-  <>
-    <Head>
-      {/* You can override this in other pages - see index.tsx for an example */}
-      <title>Platform Onboarding Prototype</title>
-    </Head>
-    <Global styles={globalStyes} />
-    <Theme>
-      <Chrome>
+import { EuiProvider } from '@elastic/eui';
+
+import createCache from '@emotion/cache';
+
+const EuiApp: FunctionComponent<AppProps> = ({ Component, pageProps }) => {
+  const emotionCache = createCache({
+    key: 'eui-styles',
+    container:
+      typeof document !== 'undefined'
+        ? document.querySelector('meta[name="eui-styles-global"]')
+        : null,
+  });
+
+  return (
+    <>
+      <Head>
+        {/* You can override this in other pages - see index.tsx for an example */}
+        <title>Platform Onboarding Prototype</title>
+      </Head>
+      <Global styles={globalStyes} />
+      <EuiProvider colorMode="light" cache={emotionCache}>
         <EuiErrorBoundary>
           <Component {...pageProps} />
         </EuiErrorBoundary>
-      </Chrome>
-    </Theme>
-  </>
-);
+      </EuiProvider>
+    </>
+  );
+};
 
 export default EuiApp;

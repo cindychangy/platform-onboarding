@@ -35,14 +35,6 @@ export const globalStyes = css`
     }
   }
 
-  [aria-label^='step-'] {
-    border-bottom: 1px solid #d3dae6;
-    padding: 24px 0;
-    &:last-child {
-      border-bottom: 0;
-    }
-  }
-
   //flyout footer
   [aria-labelledby='guided-tour'] .euiFlyoutFooter {
     border-radius: 0 0 6px 6px;
@@ -54,6 +46,22 @@ export const globalStyes = css`
     font-weight: 700;
     font-size: 16px;
     line-height: 24px;
+  }
+
+  //set accordian colors
+  [aria-labelledby='guided-tour'] .euiAccordion {
+    color: #69707d;
+
+    .euiAccordion__iconButton {
+      color: #69707d;
+    }
+
+    &.euiAccordion-isOpen {
+      color: #343741;
+  }
+
+  .euiAccordion__iconButton.euiAccordion__iconButton-isOpen {
+    color: #343741;
   }
 
   [aria-labelledby='guided-tour'] .euiFlyoutBody__overflowContent {

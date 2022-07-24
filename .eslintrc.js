@@ -21,6 +21,8 @@ module.exports = {
 
     '@next/next/no-img-element': 'off',
 
+    '@next/next/no-css-tags': 'off',
+
     // Accessibility is important to EUI. Enforce all a11y rules.
     'jsx-a11y/accessible-emoji': 'error',
     'jsx-a11y/alt-text': 'error',

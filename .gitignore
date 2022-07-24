@@ -16,6 +16,7 @@ public/themes
 
 node_modules
 .next
+_next
 
 # Default `next export` output directory
 out

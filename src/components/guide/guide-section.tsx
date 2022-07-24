@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRouter } from 'next/router';
 import {
   EuiButton,
   EuiText,
@@ -6,10 +6,10 @@ import {
   EuiAccordion,
   EuiFlexGroup,
   EuiFlexItem,
+  EuiHorizontalRule,
   EuiPanel,
   EuiIcon,
 } from '@elastic/eui';
-import { useRouter } from 'next/router';
 import { guideStyles } from './guide.styles';
 
 type GuideSectionProps = {
@@ -47,16 +47,15 @@ const GuideSection = ({
             arrowDisplay="right"
             buttonContent={title}
             paddingSize="none"
-            initialIsOpen={stepCompleted && index === 0 ? true : false}>
+            initialIsOpen={index === 0 ? true : false}>
             <EuiPanel
               paddingSize="none"
               css={stepCompleted && index === 0 ? styles.confetti : null}>
               <EuiSpacer size="s" />
               <EuiText size="s">{description}</EuiText>
-              <EuiSpacer size="m" />
               <EuiFlexGroup justifyContent="flexEnd">
                 <EuiFlexItem grow={false}>
-                  {stepCompleted && index === 0 ? null : (
+                  {(stepCompleted && index === 0) || index !== 0 ? null : (
                     <EuiButton
                       fill
                       onClick={() => router.push('guided-setup/step-page')}>
@@ -67,6 +66,7 @@ const GuideSection = ({
               </EuiFlexGroup>
             </EuiPanel>
           </EuiAccordion>
+          <EuiHorizontalRule />
         </EuiFlexItem>
       </EuiFlexGroup>
     </>

@@ -1,31 +1,7 @@
 import React, { ReactElement } from 'react';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
-import { defaultTheme, Theme, themeConfig } from '../lib/theme';
 
 const pathPrefix = process.env.PATH_PREFIX;
-
-function themeLink(theme: Theme): ReactElement {
-  let disabledProps = {};
-
-  if (theme.id !== defaultTheme) {
-    disabledProps = {
-      disabled: true,
-      'aria-disabled': true,
-    };
-  }
-
-  return (
-    <link
-      rel="stylesheet"
-      href={`${pathPrefix}/${theme.publicPath}`}
-      data-name="eui-theme"
-      data-theme-name={theme.name}
-      data-theme={theme.id}
-      key={theme.id}
-      {...disabledProps}
-    />
-  );
-}
 
 /**
  * A custom `Document` is commonly used to augment your application's
@@ -72,8 +48,14 @@ export default class MyDocument extends Document {
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="eui-styles-global" />
 
-          {themeConfig.availableThemes.map(each => themeLink(each))}
-
+          <link
+            rel="stylesheet"
+            href="/themes/eui_theme_light.3c5c8e84e97147a34c7a.min.css"
+            data-name="eui-theme"
+            data-theme-name="dsada"
+            data-theme="dsadas"
+            key="dadsad"
+          />
           <link
             rel="icon"
             type="image/png"

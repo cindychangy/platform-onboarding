@@ -127,7 +127,6 @@ const Guide = ({
               </>
             </EuiFlyoutBody>
             <EuiFlyoutFooter>
-              <EuiHorizontalRule />
               <EuiSpacer size="s" />
               <EuiText color="subdued" textAlign="center">
                 Got questions? We’re here to help -{' '}

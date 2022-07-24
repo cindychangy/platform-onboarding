@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import {
   EuiTitle,
   EuiLoadingContent,
@@ -14,6 +15,9 @@ type GuideStepProps = {
 const GuideStep = ({ buttonDisabled }: GuideStepProps) => {
   const [guideOpen, setGuide] = useState(false);
   const [stepCompleted, setStepCompleted] = useState(false);
+  const router = useRouter();
+
+  console.log(router);
 
   const handleGuideClick = () => {
     setGuide(!guideOpen);
@@ -34,7 +38,7 @@ const GuideStep = ({ buttonDisabled }: GuideStepProps) => {
       onClick={handleGuideClick}>
       <div>
         <EuiTitle size="l">
-          <h1>Add Data</h1>
+          <h1>Guided Tour Step</h1>
         </EuiTitle>
         <EuiSpacer size="xxl" />
         <EuiLoadingContent lines={10} />

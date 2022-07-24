@@ -1,16 +1,14 @@
 import { useState } from 'react';
 import {
-  EuiBadge,
-  EuiButtonEmpty,
   EuiSpacer,
+  EuiButton,
   EuiTitle,
   EuiText,
   EuiLink,
-  EuiTextColor,
   EuiCard,
-  EuiFlexGroup,
   EuiFlexItem,
-  EuiIcon,
+  EuiPanel,
+  EuiFlexGrid,
   EuiHorizontalRule,
   useEuiTheme,
 } from '@elastic/eui';
@@ -20,27 +18,57 @@ import { gettingSetupStyles } from '../../../styles/guided-setup.styles';
 const CARDS = [
   {
     title: 'Search my data',
+    image: 'illustration-search.png',
     description:
       'Create a search experience for your websites, applications, workplace content, or anything in between.',
     icon: 'logoElasticsearch',
-    footer: <EuiBadge color="hollow">Search</EuiBadge>,
+    guidePath: '',
     section: 'Search',
   },
   {
     title: 'Observe my infrastructure',
+    image: 'illustration-observability.png',
     description:
       'Monitor your infrastructure by consolidating your logs, metrics, and traces for end‑to‑end observability.',
     icon: 'logoObservability',
-    footer: <EuiBadge color="hollow">Observability</EuiBadge>,
+    guidePath: '',
     section: 'Observability',
   },
   {
     title: 'Protect my environment',
+    image: 'illustration-security.png',
     description:
       'Protect your environment by unifying SIEM, endpoint security, and cloud security to protect against threats.',
     icon: 'logoSecurity',
-    footer: <EuiBadge color="hollow">Security</EuiBadge>,
+    guidePath: '',
     section: 'Security',
+  },
+  {
+    title: 'Protect my environment',
+    image: 'illustration-security.png',
+    description:
+      'Protect your environment by unifying SIEM, endpoint security, and cloud security to protect against threats.',
+    icon: 'logoSecurity',
+    guidePath: '',
+    section: 'Security',
+  },
+  {
+    title: 'Search my data',
+    image: 'illustration-search.png',
+    description:
+      'Create a search experience for your websites, applications, workplace content, or anything in between.',
+    icon: 'logoElasticsearch',
+    guidePath: '',
+    section: 'Search',
+  },
+  {
+    title: 'Observe my infrastructure',
+    image: 'illustration-observability.png',
+    description:
+      'Monitor your infrastructure by consolidating your logs, metrics, and traces for end‑to‑end observability.',
+    icon: 'logoObservability',
+    guidePath: '',
+    section: 'Observability',
   },
 ];
 
@@ -62,63 +90,55 @@ const GettingStarted = () => {
   return (
     <KibanaLayout
       template="empty"
-      style={{ background: '#fff' }}
       guideOpen={guideOpen}
       section={section}
       buttonDisabled={buttonDisabled}
       onClick={() => handleGuideClick(section)}>
-      <div css={styles.container}>
-        <EuiTitle size="l">
-          <h1>What would you like to do first?</h1>
-        </EuiTitle>
-        <EuiSpacer size="s" />
-        <EuiText>
-          <EuiTextColor color="subdued">
+      <EuiSpacer
+        size="xxl"
+        className="eui-hideFor--xs eui-hideFor--s eui-hideFor--m"
+      />
+      <EuiPanel paddingSize="l">
+        <div css={styles.container}>
+          <EuiTitle size="l" className="eui-textCenter">
+            <h1>What would you like to do&nbsp;first?</h1>
+          </EuiTitle>
+          <EuiSpacer size="s" />
+          <EuiText color="subdued" size="s" textAlign="center">
             <p>
-              Select an option below for a guided setup to help you quickly get
-              started with Elastic.
+              Select an option below to get a quick tour of the most valuable
+              features based on your preferences.
             </p>
-          </EuiTextColor>
-        </EuiText>
-      </div>
-      <EuiSpacer size="xxl" />
-
-      <EuiFlexGroup gutterSize="s">
-        {CARDS.map((card, index) => (
-          <EuiFlexItem grow={false} key={index}>
-            <EuiCard
-              icon={
-                <div css={styles.icon}>
-                  <EuiIcon size="m" type={card.icon} />
-                </div>
-              }
-              title={card.title}
-              titleSize="xs"
-              description={card.description}
-              footer={card.footer}
-              hasBorder
-              textAlign="center"
-              display="transparent"
-              onClick={() => handleGuideClick(card.section)}
-            />
-          </EuiFlexItem>
-        ))}
-      </EuiFlexGroup>
-
-      <EuiHorizontalRule margin="xxl" />
-
-      <EuiFlexGroup alignItems="center" justifyContent="spaceBetween">
-        <EuiFlexItem grow={false}>
-          <EuiButtonEmpty iconType="indexOpen" href="">
-            Not ready to dive in? Check out our sample data.
-          </EuiButtonEmpty>
-        </EuiFlexItem>
-        <EuiFlexItem grow={false}>
-          <EuiLink href="" color="subdued">
-            I’ll explore on my own (skip)
-          </EuiLink>
-        </EuiFlexItem>
-      </EuiFlexGroup>
+          </EuiText>
+          <EuiSpacer size="s" />
+          <EuiSpacer size="xxl" />
+          <EuiFlexGrid columns={3} gutterSize="xl">
+            {CARDS.map((card, index) => (
+              <EuiFlexItem key={index}>
+                <EuiCard
+                  display="subdued"
+                  image={`../images/${card.image}`}
+                  onClick={() => handleGuideClick(card.section)}
+                  paddingSize="l"
+                  textAlign="left"
+                  title={card.title}
+                  description={card.description}
+                  footer={
+                    <div style={{ textAlign: 'center' }}>
+                      <EuiButton fill>View guide</EuiButton>
+                    </div>
+                  }
+                  titleSize="xs"
+                />
+              </EuiFlexItem>
+            ))}
+          </EuiFlexGrid>
+          <EuiHorizontalRule margin="xl" />
+          <EuiText size="s" textAlign="center">
+            <EuiLink href="#">I'd like to do something else (Skip)</EuiLink>
+          </EuiText>
+        </div>
+      </EuiPanel>
     </KibanaLayout>
   );
 };
