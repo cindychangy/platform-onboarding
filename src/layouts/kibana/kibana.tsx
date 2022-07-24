@@ -6,47 +6,39 @@ import {
   EuiHeaderLogo,
   EuiHeader,
   EuiIcon,
-  EuiPinnableListGroup,
-  EuiPinnableListGroupItemProps,
   EuiFlexItem,
   EuiHorizontalRule,
   EuiListGroup,
   useGeneratedHtmlId,
   EuiAvatar,
 } from '@elastic/eui';
-import find from 'lodash/find';
-import findIndex from 'lodash/findIndex';
 import { css } from '@emotion/react';
-import Guide from '../components/guide/guide';
+import Guide from '../../components/guide/guide';
+import { FunctionComponent } from 'react';
 import { kibanaLayoutStyles } from './kibana.styles';
+import { EuiPageTemplate, EuiPageTemplateProps } from '@elastic/eui';
 
 const pathPrefix = process.env.PATH_PREFIX;
 
-const TopLinks: EuiPinnableListGroupItemProps[] = [
-  {
-    label: 'Home',
-    iconType: 'home',
-    isActive: true,
-    'aria-current': true,
-    href: `${pathPrefix}/kibana`,
-    pinnable: false,
-  },
-];
+type KibanaLayoutProps = EuiPageTemplateProps & {
+  guideOpen: boolean;
+  onClick: (section?: string) => void;
+  section?: string;
+  buttonDisabled: boolean;
+  stepCompleted?: boolean;
+};
 
-const KibanaLinks: EuiPinnableListGroupItemProps[] = [
-  { label: 'Discover', href: `${pathPrefix}/kibana/discover` },
-  { label: 'Dashboard', href: `${pathPrefix}/kibana/dashboards` },
-];
-
-const CollapsibleNav = ({
+const KibanaLayout: FunctionComponent<KibanaLayoutProps> = ({
   onClick,
   guideOpen,
+  section,
   buttonDisabled,
   stepCompleted,
-  section,
+  children,
+  ...rest
 }) => {
-  const [navIsOpen, setNavIsOpen] = useState(false);
   const styles = kibanaLayoutStyles();
+  const [navIsOpen, setNavIsOpen] = useState(false);
 
   const breadcrumbs = [
     {
@@ -79,55 +71,6 @@ const CollapsibleNav = ({
     setOpenGroups([...openGroups]);
     localStorage.setItem('openNavGroups', JSON.stringify(openGroups));
   };
-
-  /**
-   * Pinning
-   */
-  const [pinnedItems, setPinnedItems] = useState<
-    EuiPinnableListGroupItemProps[]
-  >([]);
-
-  const addPin = (item: any) => {
-    if (!item || find(pinnedItems, { label: item.label })) {
-      return;
-    }
-    item.pinned = true;
-    const newPinnedItems = pinnedItems ? pinnedItems.concat(item) : [item];
-    setPinnedItems(newPinnedItems);
-    localStorage.setItem('pinnedItems', JSON.stringify(newPinnedItems));
-  };
-
-  const removePin = (item: any) => {
-    const pinIndex = findIndex(pinnedItems, { label: item.label });
-    if (pinIndex > -1) {
-      item.pinned = false;
-      const newPinnedItems = pinnedItems;
-      newPinnedItems.splice(pinIndex, 1);
-      setPinnedItems([...newPinnedItems]);
-      localStorage.setItem('pinnedItems', JSON.stringify(newPinnedItems));
-    }
-  };
-
-  function alterLinksWithCurrentState(
-    links: EuiPinnableListGroupItemProps[],
-    showPinned = false
-  ): EuiPinnableListGroupItemProps[] {
-    return links.map(link => {
-      const { pinned, ...rest } = link;
-      return {
-        pinned: showPinned ? pinned : false,
-        ...rest,
-      };
-    });
-  }
-
-  function addLinkNameToPinTitle(listItem: EuiPinnableListGroupItemProps) {
-    return `Pin ${listItem.label} to top`;
-  }
-
-  function addLinkNameToUnpinTitle(listItem: EuiPinnableListGroupItemProps) {
-    return `Unpin ${listItem.label}`;
-  }
 
   const collapsibleNavId = useGeneratedHtmlId({ prefix: 'collapsibleNav' });
 
@@ -171,23 +114,6 @@ const CollapsibleNav = ({
           />
         </EuiCollapsibleNavGroup>
       </EuiFlexItem>
-      {/* Shaded pinned section always with a home item */}
-      <EuiFlexItem grow={false}>
-        <EuiCollapsibleNavGroup background="light">
-          <EuiPinnableListGroup
-            aria-label="Pinned links" // A11y : Since this group doesn't have a visible `title` it should be provided an accessible description
-            listItems={alterLinksWithCurrentState(TopLinks).concat(
-              alterLinksWithCurrentState(pinnedItems, true)
-            )}
-            unpinTitle={addLinkNameToUnpinTitle}
-            onPinClick={removePin}
-            maxWidth="none"
-            color="text"
-            gutterSize="none"
-            size="s"
-          />
-        </EuiCollapsibleNavGroup>
-      </EuiFlexItem>
       <EuiHorizontalRule margin="none" />
       {/* Menu items */}
       <EuiFlexItem className="eui-yScroll">
@@ -204,18 +130,9 @@ const CollapsibleNav = ({
           iconType="logoKibana"
           isCollapsible={true}
           initialIsOpen={openGroups.includes('Kibana')}
-          onToggle={(isOpen: boolean) => toggleAccordion(isOpen, 'Kibana')}>
-          <EuiPinnableListGroup
-            aria-label="Kibana" // A11y : EuiCollapsibleNavGroup can't correctly pass the `title` as the `aria-label` to the right HTML element, so it must be added manually
-            listItems={alterLinksWithCurrentState(KibanaLinks)}
-            pinTitle={addLinkNameToPinTitle}
-            onPinClick={addPin}
-            maxWidth="none"
-            color="subdued"
-            gutterSize="none"
-            size="s"
-          />
-        </EuiCollapsibleNavGroup>
+          onToggle={(isOpen: boolean) =>
+            toggleAccordion(isOpen, 'Kibana')
+          }></EuiCollapsibleNavGroup>
       </EuiFlexItem>
     </EuiCollapsibleNav>
   );
@@ -223,7 +140,7 @@ const CollapsibleNav = ({
   const leftSectionItems = [collapsibleNav];
 
   return (
-    <>
+    <div css={styles.mainWrapper}>
       <EuiHeader
         position="fixed"
         theme="dark"
@@ -280,8 +197,14 @@ const CollapsibleNav = ({
           },
         ]}
       />
-    </>
+
+      <div css={styles.contentWrapper} className="fullBody">
+        <EuiPageTemplate restrictWidth {...rest}>
+          {children}
+        </EuiPageTemplate>
+      </div>
+    </div>
   );
 };
 
-export default CollapsibleNav;
+export default KibanaLayout;

@@ -14,7 +14,7 @@ import {
   EuiHorizontalRule,
   useEuiTheme,
 } from '@elastic/eui';
-import KibanaLayout from '../../../layouts/kibana';
+import KibanaLayout from '../../../layouts/kibana/kibana';
 import { gettingSetupStyles } from '../../../styles/guided-setup.styles';
 
 const CARDS = [

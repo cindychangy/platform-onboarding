@@ -6,7 +6,7 @@ import {
   EuiSpacer,
   EuiButton,
 } from '@elastic/eui';
-import KibanaLayout from '../../../layouts/kibana';
+import KibanaLayout from '../../../layouts/kibana/kibana';
 
 type GuideStepProps = {
   buttonDisabled: boolean;
