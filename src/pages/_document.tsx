@@ -1,10 +1,5 @@
-<<<<<<< Updated upstream
 import React, { ReactElement } from 'react';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
-=======
-import React, { ReactElement } from "react";
-import Document, { Head, Html, Main, NextScript } from "next/document";
->>>>>>> Stashed changes
 
 const pathPrefix = process.env.PATH_PREFIX;
 
@@ -21,11 +16,7 @@ const pathPrefix = process.env.PATH_PREFIX;
  */
 export default class MyDocument extends Document {
   render(): ReactElement {
-<<<<<<< Updated upstream
     const isLocalDev = process.env.NODE_ENV === 'development';
-=======
-    const isLocalDev = process.env.NODE_ENV === "development";
->>>>>>> Stashed changes
 
     const favicon16Prod = `${pathPrefix}/images/favicon/prod/favicon-16x16.png`;
     const favicon32Prod = `${pathPrefix}/images/favicon/prod/favicon-32x32.png`;
@@ -59,11 +50,7 @@ export default class MyDocument extends Document {
 
           <link
             rel="stylesheet"
-<<<<<<< Updated upstream
-            href="/themes/eui_theme_light.3c5c8e84e97147a34c7a.min.css"
-=======
             href="./platform-onboarding/themes/eui_theme_light.3c5c8e84e97147a34c7a.min.css"
->>>>>>> Stashed changes
             data-name="eui-theme"
             data-theme-name="dsada"
             data-theme="dsadas"
