@@ -50,7 +50,7 @@ export default class MyDocument extends Document {
 
           <link
             rel="stylesheet"
-            href="https://cindychangy.github.io/platform-onboarding/platform-onboarding/themes/eui_theme_light.3c5c8e84e97147a34c7a.min.css"
+            href="https://cindychangy.github.io/platform-onboarding/themes/eui_theme_light.3c5c8e84e97147a34c7a.min.css"
             data-name="eui-theme"
             data-theme-name="dsada"
             data-theme="dsadas"
