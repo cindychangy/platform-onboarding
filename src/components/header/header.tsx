@@ -49,7 +49,7 @@ const Header = ({ accountType, signedIn }: HeaderProps) => {
                 minWidth={0}
                 onClick={
                   login
-                    ? () => handleClick('./8.6/signup')
+                    ? () => handleClick('/8.6/signup')
                     : () => handleClick('./')
                 }>
                 {login ? 'Sign up' : 'Log in'}
