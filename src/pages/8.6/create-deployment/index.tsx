@@ -13,7 +13,7 @@ import {
   EuiLink,
 } from '@elastic/eui';
 import Navbar from '../../../components/navbar/navbar';
-import { deploymentStyles } from '../../../styles/create-deployment.styles';
+import { deploymentStyles } from './create-deployment.styles';
 import { useRouter } from 'next/router';
 
 const BREADCRUMBS = [

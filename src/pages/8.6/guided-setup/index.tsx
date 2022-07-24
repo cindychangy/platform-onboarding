@@ -13,7 +13,7 @@ import {
   useEuiTheme,
 } from '@elastic/eui';
 import KibanaLayout from '../../../layouts/kibana/kibana';
-import { gettingSetupStyles } from '../../../styles/guided-setup.styles';
+import { gettingSetupStyles } from './guided-setup.styles';
 
 const CARDS = [
   {

@@ -15,7 +15,7 @@ import {
   EuiButton,
 } from '@elastic/eui';
 import Header from '../../../components/header/header';
-import { profileStyles } from '../../../styles/profile.styles';
+import { profileStyles } from './profile.styles';
 
 const EXPERIENCE = [
   {
